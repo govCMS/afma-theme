@@ -40,6 +40,7 @@
           alwaysShowClose: true,
         });
       });
+      $('[data-toggle="tooltip"]').tooltip();
     }
   };
 

@@ -5,6 +5,8 @@
  * preprocess.inc
  */
 
+define('AFMA_PUBLIC_FILE_PATH_TOKEN', '[afma-public-file-path]');
+
 /**
  * Implements hook_preprocess_html().
  * Override or insert variables into the html template.
@@ -76,6 +78,19 @@ function govstrap_preprocess_html(&$variables, $hook) {
     }
     $variables['rdf_namespaces'] = ' prefix="' . implode(' ', $prefixes) . '"';
   }
+
+  // Replace public file path token with public file path
+  //$path_to_public_files = variable_get('file_public_path', 'sites/default/files');
+  $path_to_public_files = _govstrap_get_public_file_path_from_system();
+  //  $path_to_theme = path_to_theme();
+  //  $search = array('[path_to_public_files]', '%5Bpath_to_public_files%5D', '[path_to_theme]', '%5Bpath_to_theme%5D');
+  //  $replace = array($path_to_public_files, $path_to_public_files, $path_to_theme, $path_to_theme);
+  $variables['page'] = str_replace(AFMA_PUBLIC_FILE_PATH_TOKEN, $path_to_public_files, $variables['page']);
+}
+
+function _govstrap_get_public_file_path_from_system(){
+  global $base_url;
+  return rtrim(str_replace($base_url, '', file_create_url('public://')), '/');
 }
 
 /**
@@ -140,4 +155,100 @@ function govstrap_preprocess_block(&$variables, $hook) {
     // Add template suggestions for bean types.
     $variables['theme_hook_suggestions'][] = 'block__bean__' . $bean['#bundle'];
   }
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function govstrap_preprocess_entity(&$variables) {
+  // _template_preprocess_entity__{entity_type}__{bundle_machine_name}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['entity_type'] . '__' . $variables['elements']['#bundle'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
+}
+
+/**
+ * Called by govstrap_preprocess_entity()
+ */
+function _govstrap_preprocess_entity__paragraphs_item__afma_species_catch_limit_count(&$variables) {
+
+  $theme_path =  drupal_get_path('theme', 'govstrap');
+
+  drupal_add_js($theme_path . '/js/countUp/countUp.js', 'file');
+  drupal_add_js($theme_path . '/js/countUp/countUp_usage.js', 'file');
+}
+
+/**
+ * Called by govstrap_preprocess_entity()
+ */
+function _govstrap_preprocess_entity__paragraphs_item__afma_sustainability_status_bar(&$variables) {
+
+  if (!empty($variables['paragraphs_item']->field_afma_sbar_pp_description[LANGUAGE_NONE][0]['safe_value'])){
+    $variables['attributes_array']['data-toggle'] = 'tooltip';
+    $variables['attributes_array']['data-placement'] = 'top';
+    $variables['attributes_array']['title'] = $variables['paragraphs_item']->field_afma_sbar_pp_description[LANGUAGE_NONE][0]['safe_value'];
+
+    //@TODO Shouldn't be hard-coded
+    $variables['attributes_array']['style'] = 'cursor: pointer;';
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function govstrap_preprocess_field(&$variables) {
+  // _template_preprocess_field__{field_name}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#field_name'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
+}
+
+/**
+ * Called by govstrap_preprocess_field()
+ */
+function _govstrap_preprocess_field__field_afma_sclc_count_num(&$variables) {
+
+  if (isset($variables['element']['#object']->field_afma_sclc_cl_unit[LANGUAGE_NONE][0]['value'])) {
+    $variables['attributes_array']['afma-count-unit'] =
+      $variables['element']['#object']->field_afma_sclc_cl_unit[LANGUAGE_NONE][0]['value'];
+  }
+}
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function govstrap_preprocess_taxonomy_term(&$variables) {
+  // _template_preprocess_taxonomy_term__{vocabulary_machine_name}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['vocabulary_machine_name'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
+}
+
+/**
+ * Called by govstrap_preprocess_taxonomy_term()
+ */
+function _govstrap_preprocess_taxonomy_term__seasons(&$variables) {
+  // Do not display as link
+  $variables['page'] = TRUE;
+}
+
+/**
+ * Called by govstrap_preprocess_taxonomy_term()
+ */
+function _govstrap_preprocess_taxonomy_term__sustainability_status(&$variables) {
+  // Do not display as link
+  $variables['page']    = TRUE;
+  $variables['content'] = [
+    '#type'   => 'markup',
+    '#markup' => $variables['name'],
+  ];
+
+  // Insert term-specific classes
+  $variables['classes_array'][] = 'afma-sustainability-status-' . drupal_html_class($variables['name']);
 }
