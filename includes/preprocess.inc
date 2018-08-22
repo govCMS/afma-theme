@@ -134,6 +134,13 @@ function govstrap_preprocess_page(&$variables) {
 function govstrap_preprocess_node(&$variables, $hook) {
   // Add a theme hook suggestion for type and view mode.
   $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+
+  // _template_preprocess_node__{content_type}__{view mode}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['type'] . '__' . $variables['view_mode'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
 }
 
 /**
@@ -170,6 +177,55 @@ function govstrap_preprocess_entity(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_field().
+ */
+function govstrap_preprocess_field(&$variables) {
+  // _template_preprocess_field__{field_name}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#field_name'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
+}
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function govstrap_preprocess_taxonomy_term(&$variables) {
+  // _template_preprocess_taxonomy_term__{vocabulary_machine_name}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['vocabulary_machine_name'];
+
+  if (function_exists($possible_hook_name)) {
+    $possible_hook_name($variables);
+  }
+}
+
+/******************** Internal functions called by preprocess hooks *****************/
+
+/**
+ * Called by govstrap_preprocess_node()
+ */
+function _govstrap_preprocess_node__afma_portfolio__full(&$variables) {
+
+  // If there is any body summary, we added into top section before body rendered.
+  if (!empty($variables['body'][0][safe_summary])){
+    $variables['content'] = [
+      'body_summary' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => 'afma-portfolio-body-summary',
+        ],
+        'markup' => [
+          '#type' => 'markup',
+          '#markup' => $variables['body'][0][safe_summary],
+        ],
+      ],
+    ] + $variables['content'];
+  }
+}
+
+
+/**
  * Called by govstrap_preprocess_entity()
  */
 function _govstrap_preprocess_entity__paragraphs_item__afma_species_catch_limit_count(&$variables) {
@@ -196,18 +252,6 @@ function _govstrap_preprocess_entity__paragraphs_item__afma_sustainability_statu
 }
 
 /**
- * Implements hook_preprocess_field().
- */
-function govstrap_preprocess_field(&$variables) {
-  // _template_preprocess_field__{field_name}
-  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#field_name'];
-
-  if (function_exists($possible_hook_name)) {
-    $possible_hook_name($variables);
-  }
-}
-
-/**
  * Called by govstrap_preprocess_field()
  */
 function _govstrap_preprocess_field__field_afma_sclc_count_num(&$variables) {
@@ -215,18 +259,6 @@ function _govstrap_preprocess_field__field_afma_sclc_count_num(&$variables) {
   if (isset($variables['element']['#object']->field_afma_sclc_cl_unit[LANGUAGE_NONE][0]['value'])) {
     $variables['attributes_array']['afma-count-unit'] =
       $variables['element']['#object']->field_afma_sclc_cl_unit[LANGUAGE_NONE][0]['value'];
-  }
-}
-
-/**
- * Implements template_preprocess_taxonomy_term().
- */
-function govstrap_preprocess_taxonomy_term(&$variables) {
-  // _template_preprocess_taxonomy_term__{vocabulary_machine_name}
-  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['vocabulary_machine_name'];
-
-  if (function_exists($possible_hook_name)) {
-    $possible_hook_name($variables);
   }
 }
 
