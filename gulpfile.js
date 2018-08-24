@@ -59,67 +59,66 @@ var onError = function(err) {
 // JS minify.
 gulp.task('scripts', function() {
   gulp.src('node_modules/jquery/dist/jquery.min.js')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(gulp.dest('./js/'));
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(gulp.dest('./js/'));
 
-  gulp.src('node_modules/bootstrap-sass/assets/javascripts/**')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(gulp.dest('./js/'));
+  gulp.src('node_modules/bootstrap/dist/js/**')
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(gulp.dest('./js/'));
+
+  gulp.src('node_modules/popper.js/dist/umd/popper.min.js')
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(gulp.dest('./js/'));
 
   return gulp.src('./src/js/*.js')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    // .pipe(gulp.dest('./js/'))
-    .pipe(uglify())
-    // .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('./js/'));
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      // .pipe(gulp.dest('./js/'))
+      .pipe(uglify())
+      // .pipe(rename({ extname: '.min.js' }))
+      .pipe(gulp.dest('./js/'));
 });
 
 
 // Modernizr
 gulp.task('modernizr', function() {
   gulp.src('./src/js/*.js')
-    .pipe(modernizr())
-    .pipe(gulp.dest('./js/'))
+      .pipe(modernizr())
+      .pipe(gulp.dest('./js/'))
 });
 
 
 // Optimise favicons.
 gulp.task('favicons', function() {
   return gulp.src('./src/favicon/favicons/**/*')
-    .pipe(imagemin({
-      optimizationLevel: 3
-    }))
-    .pipe(gulp.dest('./favicons'))
+      .pipe(imagemin({
+        optimizationLevel: 3
+      }))
+      .pipe(gulp.dest('./favicons'))
 });
 
 
 // Optimise images.
 gulp.task('images', function() {
   return gulp.src('./src/img/**/*')
-    .pipe(imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true,
-    }))
-    .pipe(gulp.dest('./img'))
+      .pipe(imagemin({
+        optimizationLevel: 3,
+        progressive: true,
+        interlaced: true,
+      }))
+      .pipe(gulp.dest('./img'))
 });
 
 
 // Compile the Sass.
 gulp.task('styles', function() {
-  // Bootstrap fonts.
-  gulp.src('node_modules/bootstrap-sass/assets/fonts/**')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(gulp.dest('./fonts/'));
-
   // Register the PostCSS plugins.
   var postcssPlugins = [
     atImport,
@@ -128,25 +127,25 @@ gulp.task('styles', function() {
   ];
   // The actual task.
   gulp.src('./src/sass/*.scss')
-    // Error handling
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    // Compile the Sass code.
-    .pipe(compass({
-      sass: './src/sass'
-    }))
-    // If there's more than one css file outputted, merge them into one.
-    // .pipe(concat('./styles.css'))
-    // Optimise the CSS.
-    .pipe(postcss(postcssPlugins))
-    // Output to the css folder.
-    .pipe(gulp.dest('./css/'))
-    // BrowserSync
-    // Note: you need to disable Drupal caching and concatenation or this won't do any good.
-    .pipe(browserSync.stream({
-      match: '**/*.css'
-    }));
+  // Error handling
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      // Compile the Sass code.
+      .pipe(compass({
+        sass: './src/sass'
+      }))
+      // If there's more than one css file outputted, merge them into one.
+      // .pipe(concat('./styles.css'))
+      // Optimise the CSS.
+      .pipe(postcss(postcssPlugins))
+      // Output to the css folder.
+      .pipe(gulp.dest('./css/'))
+      // BrowserSync
+      // Note: you need to disable Drupal caching and concatenation or this won't do any good.
+      .pipe(browserSync.stream({
+        match: '**/*.css'
+      }));
 });
 
 
@@ -154,21 +153,21 @@ gulp.task('styles', function() {
 gulp.task('iconFont', function() {
   var runTimestamp = Math.round(Date.now() / 1000);
   return gulp.src(['./src/font-icons/**'])
-    .pipe(iconfontCss({
-      fontName: fontName,
-      path: 'scss',
-      targetPath: '../src/sass/_' + fontName + '.scss', // Relative to the path used in gulp.dest()
-      fontPath: '/fonts/' // Relative to the site.
-    }))
-    .pipe(iconfont({
-      fontName: fontName, // Required.
-      prependUnicode: true, // Recommended option.
-      formats: ['ttf', 'eot', 'woff', 'woff2'], // Default, 'woff2' and 'svg' are available.
-      timestamp: runTimestamp, // Recommended to get consistent builds when watching files.
-      normalize: true, // The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
-      fontHeight: 1001, // Stops the SVG being redrawn like a 3yo did them.. (https://github.com/nfroidure/gulp-iconfont/issues/138)
-    }))
-    .pipe(gulp.dest('./fonts/'));
+      .pipe(iconfontCss({
+        fontName: fontName,
+        path: 'scss',
+        targetPath: '../src/sass/_' + fontName + '.scss', // Relative to the path used in gulp.dest()
+        fontPath: '/fonts/' // Relative to the site.
+      }))
+      .pipe(iconfont({
+        fontName: fontName, // Required.
+        prependUnicode: true, // Recommended option.
+        formats: ['ttf', 'eot', 'woff', 'woff2'], // Default, 'woff2' and 'svg' are available.
+        timestamp: runTimestamp, // Recommended to get consistent builds when watching files.
+        normalize: true, // The provided icons does not have the same height it could lead to unexpected results. Using the normalize option could solve the problem.
+        fontHeight: 1001, // Stops the SVG being redrawn like a 3yo did them.. (https://github.com/nfroidure/gulp-iconfont/issues/138)
+      }))
+      .pipe(gulp.dest('./fonts/'));
 });
 
 
@@ -267,10 +266,6 @@ gulp.task('default', ['images', 'scripts', 'modernizr', 'styles']);
 
 // Watch changes.
 gulp.task('watch', ['images', 'scripts', 'modernizr', 'styles'], function() {
-  // Watch for Sass changes.
-  gulp.watch('./src/sass/govstrap/*.scss', function() {
-    gulp.start('styles');
-  });
   // Watch for img optim changes.
   gulp.watch('./src/img/**', function() {
     gulp.start('images');
@@ -285,10 +280,6 @@ gulp.task('watch', ['images', 'scripts', 'modernizr', 'styles'], function() {
   });
   // Watch for Sass changes.
   gulp.watch('./src/sass/*.scss', function() {
-    gulp.start('styles');
-  });
-  // Watch for Sass changes.
-  gulp.watch('./src/sass/partials/*.scss', function() {
     gulp.start('styles');
   });
   // Watch for master Favicon changes.

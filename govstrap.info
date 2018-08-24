@@ -40,6 +40,7 @@ settings[govstrap_rebuild_registry] = 0
 ;; Javascript.
 ;;;;;;;;;;;;;;;;;;;;;
 
+scripts[] = js/popper.min.js
 scripts[] = js/bootstrap.min.js
 scripts[] = js/ekko-lightbox.min.js
 scripts[] = js/scripts.js
