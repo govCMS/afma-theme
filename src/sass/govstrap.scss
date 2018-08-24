@@ -22,7 +22,7 @@
 // Responsive styles
 @import "site-responsive";
 // Bootstrap 4 and we give site second chance to alter the variables above.
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 // Main stylesheet
 @import 'site';
 // Print styles
