@@ -231,7 +231,7 @@ function _govstrap_preprocess_entity__paragraphs_item__afma_species_catch_limit_
 
   $theme_path =  drupal_get_path('theme', 'govstrap');
 
-  drupal_add_js($theme_path . '/lib/countUp.js', 'file');
+  drupal_add_js($theme_path . '/js/countUp.min.js', 'file');
   drupal_add_js($theme_path . '/js/countUp_usage.js', 'file');
 }
 
