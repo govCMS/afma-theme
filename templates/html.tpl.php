@@ -20,7 +20,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta property="og:title" content="<?php print $head_title; ?>"/>
   <?php print $head ?>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i" rel="stylesheet">
   <?php print $styles ?>
   <?php print $scripts ?>
 </head>

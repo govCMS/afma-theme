@@ -54,6 +54,28 @@ function govstrap_preprocess_html(&$variables, $hook) {
     drupal_add_js($fontawesome, array('type' => 'external', 'defer' => TRUE));
   }
 
+  // Add fontawesome to page head
+  // First, we must set up an array
+  $element = array(
+    '#tag' => 'link', // The #tag is the html tag -
+    '#attributes' => array( // Set up an array of attributes inside the tag
+      'href' => path_to_theme(). '/fonts/fontawesome/css/fontawesome-all.min.css',
+      'rel' => 'stylesheet',
+    ),
+  );
+  drupal_add_html_head($element, 'afma_fontawesome_fonts');
+
+  // Add google fonts to page head
+  // First, we must set up an array
+  $element = array(
+    '#tag' => 'link', // The #tag is the html tag -
+    '#attributes' => array( // Set up an array of attributes inside the tag
+      'href' => 'https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Open+Sans|Roboto+Slab:400,700',
+      'rel' => 'stylesheet',
+    ),
+  );
+  drupal_add_html_head($element, 'afma_google_fonts');
+
   // Accessibility settings.
   $variables['skip_link_anchor'] = check_plain(theme_get_setting('govstrap_skip_link_anchor'));
   $variables['skip_link_text'] = check_plain(theme_get_setting('govstrap_skip_link_text'));

@@ -48,7 +48,7 @@ scripts[] = js/scripts.js
 ;; Stylesheet.
 ;;;;;;;;;;;;;;;;;;;;;
 
-stylesheets[all][] = css/govstrap.css
+stylesheets[all][] = css/site.css
 stylesheets[all][] = css/ekko-lightbox.css
 
 ;;;;;;;;;;;;;;;;;;;;;
