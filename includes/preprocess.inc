@@ -239,6 +239,28 @@ function govstrap_preprocess_taxonomy_term(&$variables) {
   }
 }
 
+/**
+ * Theme a menu item link.
+ *
+ * @param $variables
+ *   An array of variables containing:
+ *    - menu_item: The menu item array.
+ *    - link_options: An array of link options.
+ *
+ * @ingroup themeable
+ */
+function govstrap_superfish_menu_item_link($variables) {
+  $menu_item = $variables['menu_item'];
+  $link_options = $variables['link_options'];
+
+  if ($menu_item['link']['link_path'] == '<front>' && drupal_strtolower($menu_item['link']['title']) == 'home' ){
+    $link_options['html'] = TRUE;
+    $menu_item['link']['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
+  }
+
+  return l($menu_item['link']['title'], $menu_item['link']['href'], $link_options);
+}
+
 /******************** Internal functions called by preprocess hooks *****************/
 
 /**
