@@ -17,7 +17,7 @@ $pColor:                                      $primary;
 $sColor:                                      $green;
 $tColor:                                      $purple;
 $dark-blue:                                   #003956;
-$nav-bg:                                      #e9eaeb;
+$nav-bg:                                      #f7f7f7;
 $footer-bg:                                   #26313f;
 $footer-bg-alt:                               #313c49;
 $banner-gray:                                 #919eae;
@@ -26,11 +26,14 @@ $default-color:                               #003956;
 $default-color-rgb:                           rgb(255,150,0);;
 $inactive-pagination:                         #677d8c;
 
+$lightblue:                                   #007dc3;
+$charcoal:                                    #333333;
+
 // Common variables
 //
 $body-bg:                                     #f7f7f7;
 $body-color:                                  #26313e;
-$font-family-base:                            'Open Sans', sans-serif;
+$font-family-base:                            'Open Sans Semibold', sans-serif;
 $headings-font-family:                        'Roboto Slab', serif;
 $font-family1:                                $font-family-base;
 $font-family2:                                $headings-font-family;
@@ -42,7 +45,7 @@ $border-width:                                2px;
 $border-color:                                #e7e7e7;
 $headings-color:                              $dark-blue;
 $headings-font-weight:                        700;
-$accent-size:                                 45px;
+$accent-size:                                 90px;
 $accent-size-mob:                             35px;
 $mobile-gutter:                               $accent-size-mob;
 

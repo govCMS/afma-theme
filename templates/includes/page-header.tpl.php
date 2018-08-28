@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <nav id="navigation" class="<?php print $container_class; ?> clearfix">
+                    <nav id="navigation" class="<?php print $container_class; ?> clearfix navbar">
                       <?php print render($page['navigation']); ?>
                     </nav><!-- /#navigation -->
                 </div>

@@ -14,17 +14,94 @@
   z-index: 2;
   .nav-bg {
     background-color: $nav-bg;
+    .sf-menu {
+      > li {
+        &.first {
+          padding-left: 0;
+          padding-top: 1em;
+        }
+        &.last {
+          padding-top: 1em;
+        }
+
+      }
+      .sf-single-children-4 {
+        ul {
+          min-width: 250px;
+        }
+      }
+    }
+    li {
+      padding: 10px 10px;
+
+      a {
+        color: $charcoal;
+      }
+      ul {
+        background-color: $nav-bg;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        li {
+          .sf-depth-2 {
+            padding-top: 10px;
+          }
+          .first {
+            padding-left: 40px;
+            a {
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .menuparent {
+      > a {
+        padding-top: .5em;
+        &:before {
+          display: inline-block;
+          margin-right: .255em;
+          vertical-align: 3px;
+          content: '\f078';
+          font-family: 'Font Awesome 5 Pro';
+          font-weight: 300;
+          font-size: 11px;
+          padding-right: 5px;
+        }
+      }
+    }
   }
   .top {
     padding: $spacer 0;
-    .afma-logo  {
-      width: 309px;
-      height: 86px;
+    .afma-logo {
+      width: 435px;
+      height: 98px;
     }
-    form,
-    .translate,
-    .logo {
-      display: inline-block;
+    .afma-header-crimfish-hotline {
+      padding-top: 20px;
+    }
+    .p-info {
+      font-weight: 700;
+    }
+    .afma-header-hotline-link {
+      font-size: 23px;
+      font-weight: 700;
+      padding-left: 20px;
+      color: $lightblue !important;
+    }
+    .afma-header-upper-links-container {
+      padding-top: 30px;
+    }
+    .afma-header-upper-links {
+      display: inline-flex;
+      li.leaf {
+        list-style: none !important;
+        a {
+          color: $charcoal;
+        }
+      }
+    }
+    form {
       vertical-align: top;
       margin-left: $spacer*2;
       white-space: nowrap;
@@ -41,38 +118,6 @@
         }
       }
     }
-    .translate {
-      position: relative;
-      padding-top: 23px;
-      max-width: 72px;
-      font-family: $font-family3;
-      font-size: $small-font-size;
-      text-transform: uppercase;
-      text-align: center;
-      color: $blue;
-      cursor: pointer;
-
-      &:hover {
-        color: darken($blue, 10%);
-      }
-
-      .translate-indicator {
-        position: absolute;
-        top: -5px;
-        left: 25px;
-        display: none;
-      }
-
-      img {
-        display: block;
-        margin: 0 auto 3px;
-      }
-    }
-    .logo {
-      width: 100px;
-      height: 77px;
-      margin-top: 4px;
-    }
   }
   .justify-content {
     justify-content: space-between;
@@ -81,291 +126,10 @@
   .navbar {
     padding-left: 0;
     padding-right: 0;
-  }
-
-
-
-  .navbar-nav {
-    font-family: $font-family3;
-    color: $dark-blue;
-    font-weight: 600;
-    @include font-smoothing();
-    &.large-font {
-      .nav-item {
-        font-size: 21px;
-        &:after {
-          bottom: -13px;
-        }
-        .nav-link {
-          top: 0;
-          text-transform: uppercase;
-          &:after {
-            bottom: -13px;
-          }
-        }
-      }
-    }
-    .nav-item {
-      font-size: 18px;
-
-      &.active {
-        .nav-link {
-          &:after {
-            display: block;
-          }
-        }
-      }
-
-      .nav-link {
-        color: inherit;
-        position: relative;
-        &:after {
-          display: none;
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          width: 100%;
-          height: 5px;
-          content: '';
-          border: 0 none;
-        }
-        &:hover {
-          opacity: 0.8;
-        }
-        &.dropdown-toggle {
-          &:before {
-            display: inline-block;
-            margin-right: .255em;
-            vertical-align: 3px;
-            content: '\f078';
-            font-family: 'Font Awesome 5 Pro';
-            font-weight: 300;
-            font-size: 11px;
-          }
-          &:after {
-            // display: none;
-          }
-        }
-        .fa-home {
-          font-size: 22px;
-        }
-      }
-    }
-  }
-  .dropdown-menu {
-    a {
-      color: $white;
-      background-color: transparent;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    li.first.last.expanded {
-      a {
-        padding-left: 1rem;
-      }
-    }
-
-    .menu-row {
-
-      > .menu {
-        @extend .row;
-        padding-left: 0;
-
-        > li.col-md-4 {
-          @extend .col-md-4;
-          margin-left: 0;
-
-        }
-
-        li {
-          list-style: none;
-
-          &.abcc-main-menu-sub-menu {
-
-            > ul.menu {
-              @extend .list-unstyled;
-              @extend .li-spacing;
-              @extend .fixed-icon-list;
-              @extend .mb-3;
-
-              > li {
-                padding-top: 0;
-                padding-right: 0;
-                margin-left: 0;
-              }
-            }
-
-          }
-
-        }
-      }
-    }
-
-      .menu {
-
-      li {
-        list-style: none;
-
-        &.dropdown-item {
-          @extend .dropdown-item;
-          margin-left: -1rem;
-
-          &:hover {
-            color: #17b791;
-            text-decoration: none;
-            background-color: transparent;
-          }
-
-          a {
-            color: inherit;
-            @extend .dropdown-item;
-            &.active {
-              @extend .dropdown-item;
-              @extend .active;
-              background-color: transparent;
-
-              &:hover {
-                background-color: transparent;
-                text-decoration: underline;
-              }
-            }
-
-            &:hover {
-              opacity: .8;
-              text-decoration: underline;
-              background-color: transparent;
-            }
-          }
-        }
-      }
-    }
-
-  }
-
-  .navbar-nav {
-    li.nav-item.dropdown:not(.mega) {
-      .menu{
-        @extend .inner;
-
-      }
-    }
-  }
-
-  .navbar-nav {
-    .nav-item {
-      &.dropdown {
-        &:hover {
-          .dropdown-menu {
-            display: block !important;
-            &:hover {
-              display: block !important;
-            }
-          }
-        }
-      }
-
-      &.mega {
-        position: static !important;
-        .dropdown-menu {
-          width: 100%;
-          left: 0;
-          right: 0;
-          font-family: $font-family1;
-          font-size: $font-size-base;
-          color: $body-color;
-          border: 0 none;
-          box-shadow: none;
-          top: 45px;
-          background-color: transparent;
-          padding: 23px 0 0;
-          .inner {
-            background-color: $nav-bg;
-            position: relative;
-            z-index: 0;
-            padding: 0;
-            &:before {
-              position: absolute;
-              top: 0;
-              left: 50%;
-              margin-left: -50vw;
-              width: 100%;
-              background-color: inherit;
-              content: '';
-              height: 100%;
-              width: 100vw;
-            }
-
-            a {
-              color: inherit;
-              background-color: transparent;
-              &:hover {
-                opacity: 0.8;
-              }
-            }
-            i {
-              &.fa-arrow-circle-right {
-                &.fa-2x {
-                  position: relative;
-                  top: 7px;
-                  margin-right: 4px;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      .dropdown-menu {
-        background-color: transparent;
-        color: $body-color;
-        border: 0 none;
-        border-radius: 0;
-        padding: 0;
-        font-family: $font-family1;
-        font-size: $small-font-size;
-        font-weight: 700;
-        margin: 0;
-        padding: 15px 0 0;
-
-        .inner {
-          background-color: $nav-bg;
-          padding: $spacer;
-        }
-        .dropdown-item {
-          padding-left: $spacer;
-          padding-right: $spacer;
-          color: $body-color;
-          font-weight: inherit;
-          position: relative;
-          &:before {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 5px;
-            background-color: blue;
-            content: '';
-          }
-          &.active {
-            &:before {
-              display: block;
-            }
-          }
-        }
-
-        .menu .collapsed,
-        .menu .leaf,
-        .menu .expanded {
-          @extend .dropdown-item;
-        }
-      }
-    }
+    font-size: 18px;
   }
 }
+
 
 .header .navbar-nav .nav-item .dropdown-menu .menu .leaf{
   white-space: inherit;

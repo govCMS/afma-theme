@@ -7,11 +7,6 @@ body{
         color: $white;
       }
     }
-    .accent{
-      &:before{
-        border-color: $white;
-      }
-    }
   }
 
   &.theme-government{
@@ -109,9 +104,9 @@ body{
 // Top right accent symbol
 //
 .accent{
-  padding-top: $accent-size;
-  padding-left: $accent-size;
+  max-width: 350px;
   position: relative;
+  vertical-align: middle;
   &.color-blue{
     &:before{
       border-color: $blue !important;
@@ -131,16 +126,6 @@ body{
     &:before{
       border-color: $red !important;
     }
-  }
-  &:before{
-    height: $accent-size;
-    width: $accent-size;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    border-width: 10px 0 0 10px;
-    border-style: solid;
   }
 }
 
