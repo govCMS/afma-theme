@@ -17,18 +17,29 @@
   <meta http-equiv="cleartype" content="on">
   <meta name="MobileOptimized" content="width">
   <meta name="HandheldFriendly" content="true">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:title" content="<?php print $head_title; ?>"/>
   <?php print $head ?>
   <?php print $styles ?>
   <?php print $scripts ?>
+    <!--[if IE 9]>
+    <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css"
+          rel="stylesheet">
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie8.min.css"
+          rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/g/html5shiv@3.7.3"></script>
+    <![endif]-->
 </head>
 <body class="<?php print $classes ?>"<?php print $attributes ?>>
-  <?php if ($skip_link_text && $skip_link_anchor): ?>
-    <p id="skip-link">
-      <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable sr-only sr-only-focusable"><?php print $skip_link_text; ?></a>
-    </p>
-  <?php endif; ?>
+<?php if ($skip_link_text && $skip_link_anchor): ?>
+    <div id="skip-link">
+        <a href="#<?php print $skip_link_anchor; ?>"
+           class="element-invisible element-focusable sr-only sr-only-focusable"><?php print $skip_link_text; ?></a>
+    </div>
+<?php endif; ?>
   <?php print $page_top ?>
   <?php print $page ?>
   <?php print $page_bottom ?>

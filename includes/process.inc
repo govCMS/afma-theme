@@ -34,13 +34,6 @@ function govstrap_process_html_tag(&$variables) {
 }
 
 /**
- * Implements hook_process_page().
- */
-function govstrap_process_page(&$variables) {
-  $variables['active_page_parent'] = _get_active_page_parent();
-}
-
-/**
  * Implements hook_process_block().
  */
 function govstrap_process_block(&$variables, $hook) {
@@ -48,29 +41,21 @@ function govstrap_process_block(&$variables, $hook) {
   $variables['title'] = isset($variables['block']->subject) ? $variables['block']->subject : '';
 }
 
-function _get_active_page_parent() {
-  // Determine current page's parent
-  $active_page_parent = '';
-  $active_trail = menu_get_active_trail();
-  if (is_array($active_trail)) {
-    if (count($active_trail) == 2) {
-      $parent = prev($active_trail);
-    }
-    if (count($active_trail) > 2) {
-      $parent = $active_trail[1];
-    }
-    if ($parent['link_title']) {
-      $active_page_parent = '<ul class="menu">';
-      $active_page_parent .= '<li class="leaf active-trail">';
-      $active_page_parent .= l($parent['link_title'], $parent['link_path'], array('attributes' => array('class' => 'active-trail')));
-      $active_page_parent .= '</li></ul>';
-    }
-    if ($parent['title'] == 'Home') {
-      $active_page_parent = '<ul class="menu">';
-      $active_page_parent .= '<li class="leaf active-trail">';
-      $active_page_parent .= menu_get_active_title();
-      $active_page_parent .= '</li></ul>';
-    }
-  }
-  return $active_page_parent;
+/**
+ * Implements hook_process_page().
+ */
+function govstrap_process_page(&$variables) {
+  // Make search form available to page.tpl.php
+  $search_box = drupal_get_form('search_block_form');
+  $variables['search_box'] = drupal_render($search_box);
+
+  $search_box_mobile =  drupal_get_form('search_block_form');
+  //$search_box_mobile["search_block_form"]["#id"] = $search_box_mobile["search_block_form"]["#id"].'--mobile';
+
+  $variables['search_box_mobile'] = drupal_render($search_box_mobile);
+  // Accessibility settings.
+  $variables['skip_link_anchor'] = check_plain(theme_get_setting('govstrap_skip_link_anchor'));
+  $variables['skip_link_text'] = check_plain(theme_get_setting('govstrap_skip_link_text'));
+  $variables['home_page_h1'] = check_plain(theme_get_setting('home_page_h1'));
+  //$variables['active_page_parent'] = _get_active_page_parent();
 }

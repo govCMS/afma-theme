@@ -83,4 +83,32 @@ function govstrap_form_alter(&$form, &$form_state, $form_id) {
     // Update submit button style.
     $form['submit_1']['#value'] = decode_entities('') . ' Search';
   }
+
+  if ($form_id == 'search_block_form') {
+    // Update search keys filed attributes.
+    $form['search_block_form']['#attributes']['title'] = 'Search';
+    $form['search_block_form']['#attributes']['class'][] = 'form-control';
+    $form['search_block_form']['#attributes']['placeholder'] = t('Find what you\'re looking for...');
+    $form['search_block_form']['#attributes']['autocomplete'] = 'off';
+    // Update submit button style.
+    $form['actions']['submit']['#value'] = decode_entities('');
+    $form['actions']['submit']['#attributes']['aria-label'] = 'Search';
+    $form['#submit'][0] = 'govstrap_search_block_form_submit';
+  }
+
+  if ($form_id == 'search_api_page_search_form') {
+    $form['form']['keys_7']['#title_display'] = 'none';
+    $form['form']['keys_7']['#attributes']['class'][] = 'form-control';
+    $form['form']['keys_7']['#attributes']['placeholder'] = t('Find what you\'re looking for...');
+    $form['form']['submit_7']['#value'] = decode_entities('') . ' Search';
+  }
+}
+
+function govstrap_search_block_form_submit ($form, &$form_state) {
+  $keys = $form_state['values']['search_block_form'];
+  if (empty($keys)) {
+    form_set_error('keys', t('Please enter some keywords.'));
+  } else {
+    $form_state['redirect'] = array('/search/'.$keys);
+  }
 }
