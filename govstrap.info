@@ -39,6 +39,7 @@ settings[govstrap_rebuild_registry] = 0
 ;; Javascript.
 ;;;;;;;;;;;;;;;;;;;;;
 
+scripts[] = js/jquery.mmenu.all.js
 scripts[] = js/popper.min.js
 scripts[] = js/bootstrap.min.js
 scripts[] = js/ekko-lightbox.min.js
@@ -49,6 +50,7 @@ scripts[] = js/scripts.js
 
 stylesheets[all][] = css/site.css
 stylesheets[all][] = css/ekko-lightbox.css
+stylesheets[all][] = css/jquery.mmenu.all.css
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Excludes

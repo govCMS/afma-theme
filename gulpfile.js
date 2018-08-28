@@ -58,6 +58,12 @@ gulp.task('scripts', function() {
       }))
       .pipe(gulp.dest('./js/'));
 
+  gulp.src('node_modules/jquery.mmenu/dist/jquery.mmenu.all.js')
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(gulp.dest('./js/'));
+
   return gulp.src('./src/js/*.js')
       .pipe(plumber({
         errorHandler: onError
@@ -110,6 +116,12 @@ gulp.task('styles', function () {
   ];
 
   gulp.src('./build/css/*', {read: false}).pipe(clean());
+
+  gulp.src('node_modules/jquery.mmenu/dist/jquery.mmenu.all.css')
+      .pipe(plumber({
+        errorHandler: onError
+      }))
+      .pipe(gulp.dest('./css/'));
 
   return gulp.src('src/sass/*.scss') // the source .scss file
       .pipe(sass().on('error', sass.logError))
