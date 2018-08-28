@@ -286,9 +286,6 @@ function _govstrap_preprocess_entity__paragraphs_item__afma_sustainability_statu
     $variables['attributes_array']['data-toggle'] = 'tooltip';
     $variables['attributes_array']['data-placement'] = 'top';
     $variables['attributes_array']['title'] = $variables['paragraphs_item']->field_afma_sbar_pp_description[LANGUAGE_NONE][0]['safe_value'];
-
-    //@TODO Shouldn't be hard-coded
-    $variables['attributes_array']['style'] = 'cursor: pointer;';
   }
 }
 
