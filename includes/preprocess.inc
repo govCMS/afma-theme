@@ -165,7 +165,7 @@ function govstrap_preprocess_page(&$variables) {
   //$search_box_mobile["search_block_form"]["#id"] = $search_box_mobile["search_block_form"]["#id"].'--mobile';
 
   $variables['search_box_mobile'] = drupal_render($search_box_mobile);
-  
+
   $header_links =  module_invoke('menu_block', 'block_view', '2');
   $variables['header_links_block'] = $header_links['content'];
 }
@@ -240,28 +240,6 @@ function govstrap_preprocess_taxonomy_term(&$variables) {
   if (function_exists($possible_hook_name)) {
     $possible_hook_name($variables);
   }
-}
-
-/**
- * Theme a menu item link.
- *
- * @param $variables
- *   An array of variables containing:
- *    - menu_item: The menu item array.
- *    - link_options: An array of link options.
- *
- * @ingroup themeable
- */
-function govstrap_superfish_menu_item_link($variables) {
-  $menu_item = $variables['menu_item'];
-  $link_options = $variables['link_options'];
-
-  if ($menu_item['link']['link_path'] == '<front>' && drupal_strtolower($menu_item['link']['title']) == 'home' ){
-    $link_options['html'] = TRUE;
-    $menu_item['link']['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
-  }
-
-  return l($menu_item['link']['title'], $menu_item['link']['href'], $link_options);
 }
 
 /******************** Internal functions called by preprocess hooks *****************/
