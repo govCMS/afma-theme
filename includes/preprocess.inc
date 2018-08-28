@@ -165,6 +165,9 @@ function govstrap_preprocess_page(&$variables) {
   //$search_box_mobile["search_block_form"]["#id"] = $search_box_mobile["search_block_form"]["#id"].'--mobile';
 
   $variables['search_box_mobile'] = drupal_render($search_box_mobile);
+  
+  $header_links =  module_invoke('menu_block', 'block_view', '2');
+  $variables['header_links_block'] = $header_links['content'];
 }
 
 /**

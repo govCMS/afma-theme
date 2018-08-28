@@ -28,12 +28,7 @@
                         </div>
                         <div class="col-md-6 text-right search-cluster">
                             <div class="afma-header-upper-links-container">
-                                <ul class="menu afma-header-upper-links">
-                                    <li class="first leaf"><a href="/" title="">About Us</a></li>
-                                    <li class="leaf"><a href="/" title="" class="active">News and Media</a></li>
-                                    <li class="leaf"><a href="/" title="">Careers</a></li>
-                                    <li class="last leaf"><a href="/" title="" class="active">Contact Us</a></li>
-                                </ul>
+                              <?php print render($header_links_block); ?>
                             </div>
                           <?php print $search_box; ?>
                         </div>
