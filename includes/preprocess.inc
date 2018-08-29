@@ -98,29 +98,6 @@ function govstrap_preprocess_html(&$variables, $hook) {
     }
     $variables['rdf_namespaces'] = ' prefix="' . implode(' ', $prefixes) . '"';
   }
-
-  // Replace public file path token with public file path
-  //$path_to_public_files = variable_get('file_public_path', 'sites/default/files');
-  $path_to_public_files = _govstrap_get_public_file_path_from_system();
-  $path_to_theme = path_to_theme();
-  $search = [
-    '[afma-public-file-path]',
-    '%5Bafma-public-file-path%5D',
-    '[path_to_theme]',
-    '%5Bpath_to_theme%5D',
-  ];
-  $replace = [
-    $path_to_public_files,
-    $path_to_public_files,
-    $path_to_theme,
-    $path_to_theme,
-  ];
-  $variables['page'] = str_replace($search, $replace, $variables['page']);
-}
-
-function _govstrap_get_public_file_path_from_system(){
-  global $base_url;
-  return rtrim(str_replace($base_url, '', file_create_url('public://')), '/');
 }
 
 /**
@@ -156,18 +133,6 @@ function govstrap_preprocess_page(&$variables) {
   else {
     $variables['content_column_class'] = 'col-sm-12';
   }
-
-  // Make search form available to page.tpl.php
-  $search_box = drupal_get_form('search_block_form');
-  $variables['search_box'] = drupal_render($search_box);
-
-  $search_box_mobile =  drupal_get_form('search_block_form');
-  //$search_box_mobile["search_block_form"]["#id"] = $search_box_mobile["search_block_form"]["#id"].'--mobile';
-
-  $variables['search_box_mobile'] = drupal_render($search_box_mobile);
-
-  $header_links =  module_invoke('menu_block', 'block_view', '2');
-  $variables['header_links_block'] = $header_links['content'];
 }
 
 /**
