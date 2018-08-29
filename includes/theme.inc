@@ -127,7 +127,7 @@ function govstrap_menu_tree__menu_block__3($variables) {
 function govstrap_menu_link__menu_block__3(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
-  
+
   if ($element['#original_link']['plid'] == 0){
     $item_num_per_row = 3;
     $element['#attributes']['class'][] = 'col-ms-12';
