@@ -1,25 +1,14 @@
 <?php if (!empty($page['footer'])): ?>
   <footer id="footer" class="footer">
     <div class="<?php print $container_class; ?>">
-      <?php print render($page['footer']); ?>
-      <div class="visible-xs">
-          <div class="logo">
-              <a id="footer-logo-afma" href="http://www.afma.gov.au/"
-                 title="Australian Fisheries Management Authority" target="_blank">
-                  <img src="/<?php print path_to_theme(); ?>/img/logo-afma.svg" alt="AFMA logo"/>
-              </a>
-          </div>
-          <div class="logo">
-              <a id="footer-logo-tsra" href="http://www.tsra.gov.au/" title="Torres Strait Regional Authority" target="_blank">
-                  <img src="/<?php print path_to_theme(); ?>/img/logo-tsra.png" alt="Torres Strait Regional Authority logo"/>
-              </a>
-          </div>
-          <div class="logo no-right-margin">
-              <a id="footer-logo-qld-gov" href="https://www.qld.gov.au/" title="Queensland Government" target="_blank">
-                  <img src="/<?php print path_to_theme(); ?>/img/logo-qld-gov.svg" alt="Queensland Government logo"/>
-              </a>
-          </div>
-      </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="explore-the-site">
+                    <a href="#" title="explore the site" class="explore-the-site-link"><i class="fas fa-angle-down"></i> Explore the site <i class="fas fa-angle-down"></i></a>
+                </div>
+              <?php print render($page['footer']); ?>
+            </div>
+        </div>
     </div>
   </footer>
 <?php endif; ?>
@@ -27,7 +16,16 @@
 <?php if (!empty($page['footer_menu'])): ?>
   <footer id="footer-menu" class="footer-menu">
     <div class="<?php print $container_class; ?>">
-      <?php print render($page['footer_menu']); ?>
+        <div class="col-md-6 footer-bottom-stay-connected">
+            <p>Stay connected</p>
+            <div class="social-links">
+                <a href="#" title="AFMA Facebook" class="afma-facebook-redirect"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" title="AFMA Youtube" class="afma-youtube-redirect"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col-md-6 footer-bottom-menu">
+          <?php print render($page['footer_menu']); ?>
+        </div>
     </div>
   </footer>
 <?php endif; ?>
