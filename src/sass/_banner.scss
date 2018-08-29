@@ -25,22 +25,11 @@
       a{
         color: $white;
         &:hover{
-          color: $banner-gray;
+          color: $white;
         }
       }
-      .breadcrumb-text{
-        color: $banner-gray;
-        margin-right: 8px;
-      }
-      li {
-        color: $banner-gray;
-        a{
-          color: $banner-gray;
-          text-decoration: none;
-          i{
-            color: inherit;
-          }
-        }
+      .afma-breadcrum-prefix{
+        padding-right: 10px;
       }
     }
   }

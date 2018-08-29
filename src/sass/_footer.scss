@@ -1,70 +1,88 @@
 .footer{
-  a.item{
-    &:hover{
+  background-color: $black;
+  border-bottom: 1px solid $footer-border;
+  .explore-the-site{
+    padding: 2em;
+    text-align: center;
+    a{
+      color: $white;
+      text-transform: uppercase;
+      font-size: $h5-font-size;
       i{
-        transform: translateX(3px);
+        padding-right: .5em;
+        padding-left: .5em;
       }
     }
   }
-  .item{
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    padding-left: 60px;
-    position: relative;
-    &.phone{
-      a{
-        display: block;
-        pointer-events: none;
-      }
-    }
-    img{
-      position: absolute;
-      top: 3px;
-      left: 0;
-      max-width: 44px;
-      max-height: 36px;
-    }
-    span{
-      color: $white;
-      line-height: 1;
-      strong{
-        display: block;
-      }
-      i{
-        position: relative;
-        transition: all 0.2s ease;
+  .explore-the-site-link{
+    &.explore-open {
+      .fas,.fa-angle-down::before {
+        transform: rotate(180deg);
       }
     }
   }
-  ul{
-    margin-bottom: 0;
-    padding: 10px 0;
-    li{
-      display: inline;
-      margin-right: $spacer;
-      color: $white;
-      opacity: 0.4;
-      font-weight: 400;
+  .region-footer{
+    display: none;
+    padding: 2em;
+    .row{
+      .col-md-4{
+        list-style: none;
+        font-size: 1.2rem;
+      }
+      li{
+        &:before{
+          color: $white;
+        }
+        a{
+          color: $white;
+          &:hover{
+            color: $white !important;
+          }
+        }
+        .menu{
+          a{
+            font-size: $font-size-base;
+          }
+
+        }
+      }
+    }
+  }
+
+}
+
+.footer-menu{
+  background-color: $black;
+  padding: 50px;
+  .footer-bottom-stay-connected{
+    color: $afmagray;
+    font-size: $h5-font-size;
+  }
+  .social-links{
+    float: right;
+    margin-right: 280px;
+    margin-top: -5px;
+    a{
+      color: $afmagray;
       &:hover{
-        opacity: 1;
-      }
-      a{
-        color: $white !important;
+        color: $white;
       }
     }
+
   }
-  .btn{
-    border-color: $blue !important;
-    color: $white !important;
-    font-weight: 400;
-    &:hover{
-      i{
-        color: $white !important;
+  .footer-bottom-menu{
+    float: right;
+    margin-top: -40px;
+    text-align: right;
+
+    .menu{
+      display: inline-flex;
+      li.leaf {
+        list-style: none !important;
+        a {
+          color: $white;
+        }
       }
-    }
-    i{
-      color: $blue !important;
     }
   }
 }
