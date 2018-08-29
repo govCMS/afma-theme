@@ -83,3 +83,31 @@ function govstrap_menu_link__menu_block__1(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li>' . $output . $sub_menu . "</li>\n";
 }
+
+/**
+ * Default theme implementation for theme('crumbs_breadcrumb_link').
+ *
+ * @param array $item
+ *
+ * @return string
+ */
+function govstrap_crumbs_breadcrumb_link(array $item) {
+
+  $prefix = '';
+
+  if ($item['href'] == '<front>'){
+    $prefix = '<p class="afma-breadcrum-prefix">You are here:</p>';
+    $item['localized_options']['html'] = TRUE;
+    $item['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
+  }
+
+  if ('<nolink>' === $item['href']) {
+    $out_put = $prefix . check_plain($item['title']);
+  }
+  else {
+    $options = isset($item['localized_options']) ? $item['localized_options'] : array();
+    $out_put = $prefix . l($item['title'], $item['href'], $options);
+  }
+
+  return $out_put;
+}
