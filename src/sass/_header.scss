@@ -91,25 +91,27 @@
     }
     .afma-header-upper-links-container {
       padding-top: 30px;
-    }
-    .afma-header-upper-links {
-      display: inline-flex;
-      li.leaf {
-        list-style: none !important;
-        a {
-          color: $charcoal;
+      .menu{
+        display: inline-flex;
+        li.leaf {
+          list-style: none !important;
+          a {
+            color: $charcoal;
+          }
         }
       }
     }
+
     form {
       vertical-align: top;
       margin-left: $spacer*2;
       white-space: nowrap;
+      float: right;
     }
     #search-block-form {
       width: 100%;
       max-width: 445px;
-      padding-top: 22px;
+      padding-top: 10px;
       & > div {
         margin-bottom: 0;
         .form-control {

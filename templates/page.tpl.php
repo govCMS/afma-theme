@@ -33,7 +33,7 @@
             </div>
         <?php else:?>
             <div class="banner slim-line bg-dark-blue text-white theme-color-gradient-after">
-                <div class="bg-img" style="background-size: contain; background-position-x: 100%; background-image: url(/<?php print path_to_theme(); ?>/img/banners/AFMA-Banner-01.png)">
+                <div class="bg-img-others" style="background-size: contain; background-position-x: 100%; background-image: url(/<?php print path_to_theme(); ?>/img/banners/AFMA-Banner-01.png)">
                 <div class="container">
                         <div class="row">
                             <div class="col-lg-12 py-5">
@@ -43,7 +43,7 @@
                                   </nav>
                               <?php endif ?>
                                 <div class="text">
-                                    <div class="accent text-white">
+                                    <div class="accent-others text-white">
                                       <?php print render($title_prefix); ?>
                                         <h1 class="mb3"><?php print $title; ?></h1>
                                       <?php print render($node_content['field_subtitle']); ?>
