@@ -85,6 +85,63 @@ function govstrap_menu_link__menu_block__1(array $variables) {
 }
 
 /**
+ * Implements theme_menu_tree().
+ */
+function govstrap_menu_tree__menu_block__3($variables) {
+
+  $out_put = '';
+
+  $children = element_children($variables['#tree']);
+
+  if (!empty($variables['#tree'])
+      && $variables['#tree'][$children[0]]['#href'] == '<front>'
+      && $variables['#tree'][$children[0]]['#original_link']['plid'] == '0') {
+
+    $item_num_per_row = 3;
+    $i                = 1;
+    foreach ($children as $child_key) {
+      switch ($i % $item_num_per_row) {
+        case 1:
+          $out_put .= '<div class="row">' . $variables['#tree'][$child_key]['#children'];
+          break;
+        case 0:
+          $out_put .= $variables['#tree'][$child_key]['#children'] . '</div>';
+          break;
+        default:
+          $out_put .= $variables['#tree'][$child_key]['#children'];
+          break;
+      }
+      ++$i;
+    }
+  }
+  else {
+    $out_put = '<ul class="menu">' . $variables['tree'] . '</ul>';
+  }
+
+  return $out_put;
+}
+
+/**
+ * Implements theme_menu_link().
+ */
+function govstrap_menu_link__menu_block__3(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+  
+  if ($element['#original_link']['plid'] == 0){
+    $item_num_per_row = 3;
+    $element['#attributes']['class'][] = 'col-ms-12';
+    $element['#attributes']['class'][] = 'col-md-' . (12/$item_num_per_row);
+  }
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
  * Default theme implementation for theme('crumbs_breadcrumb_link').
  *
  * @param array $item
