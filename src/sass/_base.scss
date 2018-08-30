@@ -71,19 +71,10 @@
 // Components
 //
 blockquote {
-  padding-left: $spacer*2;
-  font-style: italic;
   line-height: 1.8;
-  font-family: $font-family2;
+  font-family: $font-family1;
   position: relative;
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 5px;
-    content: '';
-  }
+  font-size: $h5-font-size;
 }
 
 .search-cluster form > div,
