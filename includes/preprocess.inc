@@ -188,10 +188,15 @@ function govstrap_preprocess_entity(&$variables) {
  */
 function govstrap_preprocess_field(&$variables) {
   // _template_preprocess_field__{field_name}
-  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#field_name'];
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#entity_type'] . '__' . $variables['element']['#bundle'] . '__'  . $variables['element']['#field_name'];
 
-  if (function_exists($possible_hook_name)) {
+  if (function_exists($possible_hook_name)){
     $possible_hook_name($variables);
+  }else{
+    $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['element']['#field_name'];
+    if (function_exists($possible_hook_name)) {
+      $possible_hook_name($variables);
+    }
   }
 }
 
