@@ -41,20 +41,23 @@
         </div>
     </div>
 
-    <div class="container homepage-panel-row-2-outer">
-        <div class="row homepage-panel-row-2">
-            <div class="col-sm-12 col-md-6">
-                <div class="panel-col-content">
-              <?php print $content['row-2-col-1']; ?>
+    <div class="homepage-panel-row-2-outer" style="background-image: url(/<?php print path_to_theme(); ?>/img/banners/rules-bg.png)">
+        <div class="container" >
+            <div class="row homepage-panel-row-2">
+                <div class="col-sm-12 col-md-6">
+                    <div class="panel-col-content">
+                      <?php print $content['row-2-col-1']; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="panel-col-content">
-              <?php print $content['row-2-col-2']; ?>
+                <div class="col-sm-12 col-md-6">
+                    <div class="panel-col-content">
+                      <?php print $content['row-2-col-2']; ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="container">
         <div class="row homepage-panel-row-3">
@@ -81,13 +84,16 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row homepage-panel-row-5">
-            <div class="col-sm-12">
-                <div class="panel-col-content">
-                  <?php print $content['row-5']; ?>
+    <div class="container-row5">
+        <div class="container">
+            <div class="row homepage-panel-row-5">
+                <div class="col-sm-12">
+                    <div class="panel-col-content">
+                      <?php print $content['row-5']; ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
