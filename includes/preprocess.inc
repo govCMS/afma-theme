@@ -239,6 +239,52 @@ function _govstrap_preprocess_node__afma_portfolio__full(&$variables) {
       ],
     ] + $variables['content'];
   }
+
+  // Catch limit paragraphs organising.
+  if (isset($variables['content']['field_afma_portfolio_catch_limit'])){
+
+    $content_ref = &$variables['content'];
+
+    if ($catch_limit_children = element_children($content_ref['field_afma_portfolio_catch_limit'])){
+
+      $content_ref['portfolio_row_container'] = [
+        '#type'       => 'container',
+        '#attributes' => [
+          'class' => [
+            'afma-portfolio-row-container',
+            'row',
+          ],
+        ],
+      ];
+
+      $cl_col_container_array = [
+        '#type'       => 'container',
+        '#attributes' => [
+          'class' => [
+            'afma-portfolio-col-container',
+            'col-lg-6',
+          ],
+        ],
+      ];
+
+      // Put feature image in the front if any
+      if ($content_ref['field_feature_image']){
+        $content_ref['portfolio_row_container']['field_feature_image'] = $cl_col_container_array;
+        $content_ref['portfolio_row_container']['field_feature_image']['field_feature_image'] = $content_ref['field_feature_image'];
+        unset($content_ref['field_feature_image']);
+      }
+
+      // Now put any catch limit paragraphs into it
+      foreach ($catch_limit_children as $catch_limit_child_key) {
+        $catch_limit_key_name = 'field_afma_portfolio_catch_limit' . '_' . $catch_limit_child_key;
+        $content_ref['portfolio_row_container'][$catch_limit_key_name] = $cl_col_container_array;
+        $content_ref['portfolio_row_container'][$catch_limit_key_name][$catch_limit_key_name] = $content_ref['field_afma_portfolio_catch_limit'][$catch_limit_child_key];
+      }
+
+      unset($content_ref['field_afma_portfolio_catch_limit']);
+      unset($content_ref);
+    }
+  }
 }
 
 /**
