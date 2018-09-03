@@ -27,7 +27,7 @@
  * @ingroup views_templates
  */
 ?>
-    <div class="afma-news-listing-post-date col-lg-1">
+    <div class="afma-news-listing-post-date col-lg-1 py-3">
     <span class="afma-news-listing-date-day">
       <?php print $fields['field_news_date']->content; ?>
     </span>
@@ -40,13 +40,13 @@
     </div>
 
   <?php if ($fields['field_image']): ?>
-      <div class="afma-news-listing-title-body col-lg-8">
+      <div class="afma-news-listing-title-body col-lg-8 py-4">
           <div class="afma-news-listing-title"><?php print $fields['title']->content; ?></div>
           <div class="afma-news-listing-body"> <?php print $fields['body']->content; ?></div>
       </div>
       <div class="afma-news-listing-imag col-lg-3"><?php print $fields['field_image']->content; ?></div>
   <?php else: ?>
-      <div class="afma-news-listing-title-body col-lg-11">
+      <div class="afma-news-listing-title-body col-lg-11 py-4">
           <div class="afma-news-listing-title"><?php print $fields['title']->content; ?></div>
           <div class="afma-news-listing-body"> <?php print $fields['body']->content; ?></div>
       </div>

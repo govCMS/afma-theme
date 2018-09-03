@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="homepage-panel-row-2-outer" style="background-image: url(/<?php print path_to_theme(); ?>/img/banners/rules-bg.png)">
+    <div class="homepage-panel-row-2-outer" style="background-image: url(/<?php print path_to_theme(); ?>/img/banners/rules-bg.jpg)">
         <div class="container" >
             <div class="row homepage-panel-row-2">
                 <div class="col-sm-12 col-md-6">

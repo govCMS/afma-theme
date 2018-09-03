@@ -17,7 +17,7 @@
         <div class="banner main-banner banner-animate animate"
              id="main-banner">
             <div class="bg-img"
-                 style="background-image: url(/<?php print path_to_theme(); ?>/img/banners/Hero.png)">
+                 style="background-image: url(/<?php print path_to_theme(); ?>/img/banners/hero.png)">
                 <img class="mob-bg-img"
                      src="/<?php print path_to_theme(); ?>/img/banners/banner-mobile.png">
                 <div class="container">

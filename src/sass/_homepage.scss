@@ -81,6 +81,7 @@
             padding: 1.5rem 4rem;
           }
           .field-name-field-links{
+            margin-left: 4rem;
             @extend .arrow-padding;
           }
         }
@@ -103,6 +104,7 @@
           box-shadow: inset 5px 0px 0px 0px $aqua;
           padding: 1.5rem;
           margin-bottom: .3rem;
+          min-height: 151px;
           .field-name-field-internal-title{
             font-size: $large-font-size;
             img{
@@ -113,48 +115,32 @@
             margin-top: .5rem;
             margin-left: .5rem;
             @extend .arrow-padding;
+            a{
+              .light-blue{
+                color: $aqua;
+              }
+              .light-yellow{
+                color: $yellow;
+              }
+              .light-green{
+                color: $turquoise;
+              }
+              .pink{
+                color: $fuchsia;
+              }
+              .blue-green{
+                color: $teal;
+              }
+            }
           }
         }
       }
     }
-
     .pane-news-and-media{
+      @extend .view-news-and-media;
       .pane-title{
-        @extend .hp-title;
-      }
-      .view-news-and-media{
-        .views-row{
-          background-color: #ffffff;
-          box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
-          padding: 2rem;
-          margin-bottom: .3rem;
-          .views-field{
-
-          }
-          .afma-news-listing-post-date{
-            color: $aqua;
-            font-family: $font-family3;
-            text-align: center;
-            margin-left: -1rem;
-            float: left;
-            @extend .col-md-1;
-            .afma-news-listing-date-day{
-              font-size: $h2-font-size;
-            }
-          }
-          .afma-news-listing-title{
-            font-size: $h5-font-size;
-            color: $body-color;
-          }
-          .afma-news-listing-body{
-            color: $body-color;
-            margin-top: 1rem;
-            line-height: 1.5;
-          }
-          .afma-news-listing-imag{
-            @extend .col-md-3;
-            float: right;
-          }
+        a{
+          @extend .hp-title;
         }
       }
     }
@@ -179,3 +165,4 @@
     }
   }
 }
+
