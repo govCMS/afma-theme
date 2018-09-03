@@ -175,11 +175,16 @@ function govstrap_preprocess_block(&$variables, $hook) {
  * Implements hook_preprocess_entity().
  */
 function govstrap_preprocess_entity(&$variables) {
-  // _template_preprocess_entity__{entity_type}__{bundle_machine_name}
-  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['entity_type'] . '__' . $variables['elements']['#bundle'];
-
+  // _template_preprocess_entity__{entity_type}__{bundle_machine_name}__{view mode}
+  $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['entity_type'] . '__' . $variables['elements']['#bundle'] . '__' . $variables['elements']['#view_mode'];
   if (function_exists($possible_hook_name)) {
     $possible_hook_name($variables);
+  }else{
+    // _template_preprocess_entity__{entity_type}__{bundle_machine_name}
+    $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['entity_type'] . '__' . $variables['elements']['#bundle'];
+    if (function_exists($possible_hook_name)){
+      $possible_hook_name($variables);
+    }
   }
 }
 
@@ -291,4 +296,24 @@ function _govstrap_preprocess_taxonomy_term__sustainability_status(&$variables) 
 
   // Insert term-specific classes
   $variables['classes_array'][] = 'afma-sustainability-status-' . drupal_html_class($variables['name']);
+}
+
+/**
+ * Called by govstrap_preprocess_entity()
+ */
+function _govstrap_preprocess_entity__bean__homepage_basic_bean__highlight(&$variables) {
+
+  $variables['content']['internal_title_n_links'] = [
+    '#type' => 'container',
+    '#weight' => '99',
+    '#attributes' => [
+      'class' => ['internal-title-n-links'],
+    ],
+  ];
+
+  $variables['content']['internal_title_n_links']['field_internal_title'] = $variables['content']['field_internal_title'];
+  $variables['content']['internal_title_n_links']['field_links'] = $variables['content']['field_links'];
+
+  unset($variables['content']['field_internal_title']);
+  unset($variables['content']['field_links']);
 }
