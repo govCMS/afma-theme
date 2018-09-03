@@ -145,3 +145,30 @@ body{
 .signposts .card.card-government .card-body ul.fixed-icon-list li a::before {
   color: $green !important;
 }
+
+.sustainability-bar{
+  .afma-sustainability-status-uncertain{
+    background-color: $yellow;
+    margin-top: 1rem;
+    color: $white;
+    padding-left: .5rem;
+  }
+  .afma-sustainability-status-sustainable{
+    background-color: $lightgreen;
+    margin-top: 1rem;
+    color: $white;
+    padding-left: .5rem;
+  }
+  .afma-sustainability-status-subject-to-overfishing{
+    background-color: $afmared;
+    margin-top: 1rem;
+    color: $white;
+    padding-left: .5rem;
+  }
+  .afma-sustainability-status-status-to-be-assessed{
+    background-color: $graybar;
+    margin-top: 1rem;
+    color: $white;
+    padding-left: .5rem;
+  }
+}

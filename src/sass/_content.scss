@@ -24,82 +24,54 @@
     }
   }
 
+  .afma-portfolio-col-container{
+    font-family: $font-family3;
+    @extend .sustainability-bar;
+
+    .paragraphs-item-afma-species-catch-limit-count{
+      text-align: left;
+      padding: 2rem;
+      background-color: #ffffff;
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+      margin-top: 1.5rem;
+    }
+    .field-name-field-afma-sclc-title{
+      color: $aqua;
+      font-size: $font-size-base;
+    }
+    .field-name-field-afma-sclc-count-num{
+      font-size: $h1-font-size;
+      padding-top: .5rem;
+    }
+    .field-name-field-afma-sbar-title{
+      color: $aqua;
+      padding-top: 1rem;
+    }
+    .vocabulary-sustainability-status{
+      text-transform: uppercase;
+    }
+
+
+    > .paragraphs-item-afma-sustainability-status-bar{
+      text-align: left;
+      padding: 2rem;
+      background-color: #ffffff;
+      box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      @extend .sustainability-bar;
+
+      .field-name-field-afma-sbar-title{
+        color: $aqua;
+        font-size: $font-size-base;
+        text-transform: uppercase;
+        padding-top: 0;
+      }
+    }
+  }
+
 
   .field-name-field-feature-image{
     padding-top: 1rem;
-  }
-  .paragraphs-items-field-afma-portfolio-catch-limit{
-    font-family: $font-family3;
-
-    .field-name-field-afma-portfolio-catch-limit{
-      .paragraphs-item-afma-species-catch-limit-count{
-        text-align: left;
-        padding: 2rem;
-        background-color: #ffffff;
-        box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
-        margin-top: 1.5rem;
-        .field-name-field-afma-sclc-title{
-          color: $aqua;
-          font-size: $font-size-base;
-        }
-        .field-name-field-afma-sclc-count-num{
-          font-size: $h1-font-size;
-          padding-top: .5rem;
-        }
-        .field-name-field-afma-sbar-title{
-          color: $aqua;
-          padding-top: 1rem;
-        }
-        .vocabulary-sustainability-status{
-          text-transform: uppercase;
-        }
-        .afma-sustainability-status-uncertain{
-          background-color: $yellow;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-        .afma-sustainability-status-sustainable{
-          background-color: $lightgreen;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-        .afma-sustainability-status-subject-to-overfishing{
-          background-color: $afmared;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-      }
-
-      .paragraphs-item-afma-sustainability-status-bar{
-        .field-name-field-afma-sbar-title{
-          color: $aqua;
-          font-size: $font-size-base;
-        }
-        .afma-sustainability-status-uncertain{
-          background-color: $yellow;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-        .afma-sustainability-status-sustainable{
-          background-color: $lightgreen;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-        .afma-sustainability-status-subject-to-overfishing{
-          background-color: $afmared;
-          margin-top: 1rem;
-          color: $white;
-          padding-left: .5rem;
-        }
-      }
-
-
-    }
   }
 
   .field-name-body{
