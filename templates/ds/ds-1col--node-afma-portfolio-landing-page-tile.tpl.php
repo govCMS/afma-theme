@@ -15,7 +15,13 @@ $link = $content['node_link']['#object']->path;
   <?php print render($title_suffix['contextual_links']); ?>
   <?php endif; ?>
 <a href="/<?php print $link['alias'];?>" class="card">
-      <?php print render($content['field_feature_image']); ?>
+    <?php
+    $species_image = render($content['field_feature_image']);
+    if (empty($species_image)) {
+      $species_image = '<img style="height: auto; max-width: 100%;" src="/'.path_to_theme().'/img/species-placeholder.png" alt="placeholder image for fish species" />';
+    }
+    ?>
+      <?php print $species_image; ?>
     <div class="card-body">
       <?php print render($content['title']); ?>
     </div>
