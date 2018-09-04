@@ -32,6 +32,10 @@
           rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/g/html5shiv@3.7.3"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="/<?php print path_to_theme(); ?>/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+          href="/<?php print path_to_theme(); ?>/lib/slick/slick-theme.css">
 </head>
 <body class="<?php print $classes ?>"<?php print $attributes ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
@@ -43,5 +47,7 @@
   <?php print $page_top ?>
   <?php print $page ?>
   <?php print $page_bottom ?>
+<script type="text/javascript"
+        src="/<?php print path_to_theme(); ?>/lib/slick/slick.min.js"></script>
 </body>
 </html>

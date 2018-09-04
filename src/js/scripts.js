@@ -20,6 +20,18 @@
           ]
         });
 
+        // Slider
+        $(".rev_slider ul").slick({
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: true,
+          arrows: true,
+        });
+
         // Mobile search button behaviour
         var searchBtn = $('#search-btn');
         var searchCloseBtn = $('#close-btn');
