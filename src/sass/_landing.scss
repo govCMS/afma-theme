@@ -1,0 +1,25 @@
+blockquote.x-blockquote {
+  line-height: 1rem;
+  font-size: 1rem;
+}
+
+
+.view-afma-species {
+  .field-name-field-feature-image {
+    padding-top: 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
