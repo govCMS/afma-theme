@@ -29,7 +29,7 @@
                             <div class="text">
                                 <div class="accent-others text-white">
                                   <?php print render($title_prefix); ?>
-                                    <h1 class="mb3"><?php print $title; ?></h1>
+                                    <h1 class="my-3"><?php print $title; ?></h1>
                                     <span class="sub-title">The latest news and media from the Australian Fisheries Management Authority</span>
                                   <?php print render($title_suffix); ?>
                                 </div>
