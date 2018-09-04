@@ -6,11 +6,8 @@
  */
 ?>
 <?php
-$link = $content['node_link']['#object']->path;
+$link = $content['read_more_link']['#object']->path;
 ?>
-
-
-
   <?php if (isset($title_suffix['contextual_links'])): ?>
   <?php print render($title_suffix['contextual_links']); ?>
   <?php endif; ?>
