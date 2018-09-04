@@ -1,6 +1,6 @@
 blockquote.x-blockquote {
-  line-height: 1rem;
-  font-size: 1rem;
+  line-height: 1.8;
+  font-size: $h5-font-size;
 }
 
 
@@ -21,5 +21,96 @@ blockquote.x-blockquote {
 
   a {
     text-decoration: none;
+  }
+}
+
+.view-afma-fishing-gears{
+  @extend .view-afma-species;
+}
+
+//sidebar
+.sidebar-title{
+  font-family: $font-family3;
+  text-transform: uppercase;
+  font-size: $h5-font-size;
+}
+
+.region-sidebar-right{
+  #block-block-2{
+    background-color: $videobg;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1), inset 5px 0px 0px 0px $yellow;
+    padding: 1rem;
+  }
+  .sidebar-right-media-contact{
+    .media-contact-title{
+      @extend .sidebar-title;
+    }
+
+    ul{
+      list-style: none;
+      .media-contact-details{
+        padding: .5rem 1rem;
+        li{
+          &::before{
+            content: "\f105";
+            font-family: 'Font Awesome 5 Pro';
+            color: $yellow;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+  #mc_embed_signup{
+    background-color: transparent;
+    .input-group{
+      display: block;
+    }
+    .clear{
+      .button{
+        background-color: $yellow;
+      }
+    }
+  }
+  .sidebar-right-mailing-list-subscription{
+    margin-top: 1rem;
+    .mailing-list-subscription-title{
+      @extend .sidebar-title;
+    }
+
+  }
+  .sidebar-right-media-releases-subscription{
+    .media-releases-subscription-title{
+      @extend .sidebar-title;
+    }
+  }
+
+
+  #block-menu-block-4{
+    .block-title{
+      background-color: $graybar;
+      @extend .sidebar-title;
+      padding: 1rem;
+    }
+    ul{
+      padding-left: 0;
+      font-size: $large-font-size;
+      margin-top: -0.5rem;
+      li{
+        list-style: none;
+        margin: 0;
+        padding: 1rem;
+        &:not(.active){
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1), inset 5px 0px 0px 0px $afmalightblue;
+        }
+
+        &.active{
+          a{
+            color: $aqua;
+          }
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1), inset 5px 0px 0px 0px $aqua;
+        }
+      }
+    }
   }
 }
