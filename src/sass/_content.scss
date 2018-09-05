@@ -33,9 +33,8 @@
 
 
     .field-name-field-feature-image{
-      width: 350px;
+      width: 398px;
       height: 282px;
-      margin-top: 1.5rem;
       background-color: $white;
       box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
       position: relative;
@@ -55,10 +54,10 @@
       padding: 2rem;
       background-color: #ffffff;
       box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
-      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     .field-name-field-afma-sclc-title{
-      color: $aqua;
+      color: $lightblue;
       font-size: $font-size-base;
     }
     .field-name-field-afma-sclc-count-num{
@@ -67,13 +66,12 @@
       text-transform: none;
     }
     .field-name-field-afma-sbar-title{
-      color: $aqua;
+      color: $lightblue;
       padding-top: 1rem;
 
     }
 
-
-    > .paragraphs-item-afma-sustainability-status-bar{
+    & > .paragraphs-item-afma-sustainability-status-bar{
       text-align: left;
       padding: 2rem;
       background-color: #ffffff;
@@ -82,16 +80,11 @@
       @extend .sustainability-bar;
 
       .field-name-field-afma-sbar-title{
-        color: $aqua;
+        color: $lightblue;
         font-size: $font-size-base;
         padding-top: 0;
       }
     }
-  }
-
-
-  .field-name-field-feature-image{
-    padding-top: 1rem;
   }
 
   .field-name-body{

@@ -481,10 +481,17 @@ ul.abcc-themed {
     .card-header {
       padding: $spacer 0;
       background: transparent;
+
+      h2 {
+        font-family: $font-family3;
+      }
+
       a {
         display: block;
         padding-left: $spacer*2;
         position: relative;
+        text-decoration: none;
+
         &.collapsed {
           &:before {
             content: '\f055';
@@ -492,7 +499,7 @@ ul.abcc-themed {
         }
         &:before {
           position: absolute;
-          top: 4px;
+          top: 2px;
           left: 0;
           font-family: 'Font Awesome 5 Pro';
           font-weight: 200;
@@ -502,8 +509,14 @@ ul.abcc-themed {
       }
     }
     .card-body {
-      padding-left: $spacer*2;
-      padding-right: $spacer*2;
+      background: none;
+      padding: 1rem 0 0 0;
+      border-top: $border-width solid $border-color;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
 }
