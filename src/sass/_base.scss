@@ -471,12 +471,12 @@ ul.abcc-themed {
   .card {
     background: transparent;
     border: 0 none;
-    border-bottom: $border-width solid $border-color !important;
+    border-bottom: $border-width solid $gray-700 !important;
     color: $body-color;
     box-shadow: none;
     margin-bottom: 0;
     &:first-child {
-      border-top: $border-width solid $border-color;
+      border-top: $border-width solid $gray-700;
     }
     .card-header {
       padding: $spacer 0;
