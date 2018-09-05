@@ -20,7 +20,7 @@
     <?php print render($title_suffix['contextual_links']); ?>
   <?php endif; ?>
     <div class="card-header" role="tab" id="accordion-header-<?php print $accordion_id;?>">
-        <h2 class="mb-0 h5">
+        <h2 class="mb-0 h3">
             <a class="<?php print $accordion_link_class; ?>" data-toggle="collapse" href="#accordion-<?php print $accordion_id; ?>" aria-expanded="true" aria-controls="accordion-<?php print $accordion_id; ?>">
                 <?php print $accordion_title; ?>
             </a>
