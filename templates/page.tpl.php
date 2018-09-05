@@ -73,7 +73,7 @@
                     <!-- /main page content -->
                     <!-- sidebar right -->
                   <?php if (!empty($page['sidebar_right'])): ?>
-                      <div class="col-lg-3 offset-lg-1">
+                      <div class="col-lg-3">
                         <?php if ($active_page_parent): ?>
                             <h3 class="font-family2 mb-4 h4">
                                 <a href="/<?php print $active_page_parent['link_path']; ?>"

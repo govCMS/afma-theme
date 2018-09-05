@@ -125,7 +125,7 @@ function govstrap_preprocess_page(&$variables) {
 
   // Calculate container columns with sidebar.
   if (!empty($variables['page']['sidebar_right']) || !empty($variables['page']['sidebar_right'])) {
-    $variables['content_column_class'] = 'col-lg-8';
+    $variables['content_column_class'] = 'col-lg-9';
   }
   else {
     $variables['content_column_class'] = 'col-lg-12';
