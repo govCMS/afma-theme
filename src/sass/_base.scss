@@ -487,7 +487,7 @@ ul.abcc-themed {
         position: relative;
         &.collapsed {
           &:before {
-            content: '\f0fe';
+            content: '\f055';
           }
         }
         &:before {
@@ -496,7 +496,7 @@ ul.abcc-themed {
           left: 0;
           font-family: 'Font Awesome 5 Pro';
           font-weight: 200;
-          content: '\f146';
+          content: '\f056';
           font-size: 18px;
         }
       }

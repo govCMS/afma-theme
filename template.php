@@ -51,3 +51,8 @@ include_once './' . drupal_get_path('theme', 'govstrap') . '/includes/alter.inc'
  * Include normal theme overwrite.
  */
 include_once './' . drupal_get_path('theme', 'govstrap') . '/includes/theme.inc';
+
+/**
+ * Include custom functions.
+ */
+include_once './' . drupal_get_path('theme', 'govstrap') . '/includes/function.inc';
