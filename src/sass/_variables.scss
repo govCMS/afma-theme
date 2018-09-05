@@ -22,7 +22,7 @@ $footer-bg:                                   #26313f;
 $footer-bg-alt:                               #313c49;
 $banner-gray:                                 #919eae;
 $inactive-tab:                                #5b7586;
-$default-color:                               #003956;
+$default-color:                               #333333;
 $default-color-rgb:                           rgb(255,150,0);;
 $inactive-pagination:                         #677d8c;
 
@@ -52,7 +52,7 @@ $headings-font-family:                        'Open Sans Semibold', sans-serif;
 $font-family1:                                $font-family-base;
 $font-family2:                                $headings-font-family;
 $font-family3:                                'Barlow Semi Condensed', sans-serif;
-$link-color:                                  lighten($default-color, 10%);
+$link-color:                                  $afmablue;
 $link-hover-color:                            $default-color;
 $component-active-bg:                         $primary;
 $border-width:                                1px;
