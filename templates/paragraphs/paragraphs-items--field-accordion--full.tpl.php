@@ -25,7 +25,7 @@
  */
 ?>
 
-<div class="accordion icon-right" id="accordion-group">
+<div class="accordion icon-right pt-5" id="accordion-group">
   <?php
     print $content;
   ?>

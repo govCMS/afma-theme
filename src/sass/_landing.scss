@@ -53,7 +53,7 @@
           content: "\2022";
           font-family: 'Font Awesome 5 Pro';
           color: $yellow;
-          margin-right: 4px;
+          padding-right: .5rem;
         }
       }
     }
@@ -80,6 +80,10 @@
     .clear{
       .button{
         background-color: $yellow;
+        color: $default-color;
+        &:hover {
+          background-color: lighten($yellow, 10%);
+        }
       }
     }
   }
