@@ -40,10 +40,13 @@
           }
         }
         .menu{
+          padding-left: 1rem;
           a{
             font-size: $font-size-base;
           }
-
+          li{
+            list-style: none;
+          }
         }
       }
     }

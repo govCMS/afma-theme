@@ -22,6 +22,10 @@
   @extend .view-afma-species;
 }
 
+.view-fisheries{
+  @extend .view-afma-species;
+}
+
 //sidebar
 .sidebar-title{
   font-family: $font-family3;
@@ -39,26 +43,41 @@
     .media-contact-title{
       @extend .sidebar-title;
     }
-
+    p{
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
     ul{
       list-style: none;
-      .media-contact-details{
-        padding: .5rem 1rem;
-        li{
-          &::before{
-            content: "\f105";
-            font-family: 'Font Awesome 5 Pro';
-            color: $yellow;
-            margin-right: 4px;
-          }
+      padding: .5rem 0;
+      li{
+        &::before{
+          content: "\2022";
+          font-family: 'Font Awesome 5 Pro';
+          color: $yellow;
+          margin-right: 4px;
         }
       }
     }
+  }
+
+  label{
+    font-weight: 400;
+    font-family: $font-family1;
+    font-size: $font-size-base;
   }
   #mc_embed_signup{
     background-color: transparent;
     .input-group{
       display: block;
+      label{
+        margin-left: .5rem;
+      }
+      strong{
+        font-weight: 400;
+        font-family: $font-family1;
+        font-size: $font-size-base;
+      }
     }
     .clear{
       .button{
@@ -66,14 +85,20 @@
       }
     }
   }
+
+  .indicates-required{
+
+  }
+
   .sidebar-right-mailing-list-subscription{
-    margin-top: 1rem;
+    margin-top: 2rem;
     .mailing-list-subscription-title{
       @extend .sidebar-title;
     }
 
   }
   .sidebar-right-media-releases-subscription{
+    margin-top: 2rem;
     .media-releases-subscription-title{
       @extend .sidebar-title;
     }
