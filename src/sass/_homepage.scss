@@ -45,9 +45,6 @@
       background-color: #ffffff;
     }
     .field-name-field-internal-title{
-      text-align: left;
-      font-size: $h3-font-size;
-      padding: 1.5rem 4rem;
       img{
         width: 10%;
         height: 10%;
@@ -71,13 +68,7 @@
           .content{
             display: flex;
           }
-          .field-name-field-internal-title{
-            text-align: left;
-            font-size: $h3-font-size;
-            padding: 1.5rem 4rem;
-          }
           .field-name-field-links{
-            margin-left: 4rem;
             @extend .arrow-padding;
           }
         }
