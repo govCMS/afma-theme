@@ -1,12 +1,4 @@
 .view-afma-species {
-  .field-name-field-feature-image {
-    img {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-
   p {
     margin-top: 1rem;
   }
@@ -21,6 +13,10 @@
 }
 
 .view-fisheries{
+  @extend .view-afma-species;
+}
+
+.view-afma-protected-species{
   @extend .view-afma-species;
 }
 
