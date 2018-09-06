@@ -56,15 +56,12 @@
 
 .footer-menu{
   background-color: $black;
-  padding: 50px;
+  padding: 50px 0;
   .footer-bottom-stay-connected{
     color: $afmagray;
     font-size: $h5-font-size;
   }
   .social-links{
-    float: right;
-    margin-right: 280px;
-    margin-top: -5px;
     a{
       color: $afmagray;
       &:hover{
@@ -75,12 +72,16 @@
   }
   .footer-bottom-menu{
     float: right;
-    margin-top: -40px;
     text-align: right;
 
     .menu{
       display: inline-flex;
-      li.leaf {
+      margin-left: 0;
+      padding-left: 0;
+
+      li {
+        margin-left: 0;
+        padding-left: 0;
         list-style: none !important;
         a {
           color: $white;

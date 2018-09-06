@@ -696,6 +696,33 @@
 }
 
 @media only screen and (max-width: "480px") {
+
+
+  .afma-news-listing-post-date {
+    float: left;
+    padding-bottom: 0 !important;
+
+    span {
+      display: inline-block;
+      font-size: 1rem !important;
+    }
+  }
+
+  iframe {
+    height: auto;
+  }
+
+  .footer-bottom-menu {
+    margin-top: 1.5rem;
+    text-align: center;
+    .menu {
+      li {
+        display: block;
+      }
+    }
+  }
+
+
   body.responsive {
     background-color: orange !important;
   }
@@ -729,7 +756,7 @@
     padding-right: $menu-buttons-logo-pad;
 
     .afma-logo  {
-      padding: 10px 8px;
+      padding: 25px 8px;
     }
 
     .mob-menu,
@@ -985,4 +1012,9 @@
       }
     }
   }
+}
+
+// Iframe
+iframe {
+  max-width: 100%;
 }
