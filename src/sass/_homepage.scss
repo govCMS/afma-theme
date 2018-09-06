@@ -22,12 +22,8 @@
     .field-name-field-internal-title{
       text-align: left;
       font-size: $h3-font-size;
-      padding-left: 4rem;
-      padding-top: 1.5rem;
     }
     .field-name-field-links{
-      padding-bottom: 2rem;
-      padding-left: 4rem;
       @extend .arrow-padding;
       .field-item{
         &.even{

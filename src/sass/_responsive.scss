@@ -698,6 +698,18 @@
 @media only screen and (max-width: "480px") {
 
 
+  .panel-display {
+    .homepage-panel-row-1 {
+      .field-name-field-links {
+        .field-item {
+          &.even {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
   .afma-news-listing-post-date {
     float: left;
     padding-bottom: 0 !important;
