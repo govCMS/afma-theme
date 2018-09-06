@@ -153,7 +153,7 @@ function govstrap_crumbs_breadcrumb_link(array $item) {
   $prefix = '';
 
   if ($item['href'] == '<front>'){
-    $prefix = '<p class="afma-breadcrum-prefix">You are here:</p>';
+    $prefix = '<div class="afma-breadcrum-prefix pr-2">You are here:</div>';
     $item['localized_options']['html'] = TRUE;
     $item['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
   }

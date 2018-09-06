@@ -20,12 +20,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 py-5">
-                          <?php if (!empty($breadcrumb)): ?>
-                              <nav aria-label="breadcrumb"
-                                   class="breadcrumbs">
-                                <?php print $breadcrumb; ?>
-                              </nav>
-                          <?php endif ?>
                             <div class="text">
                                 <div class="accent-others text-white">
                                   <?php print render($title_prefix); ?>
@@ -39,6 +33,16 @@
             </div>
         </div>
         <!-- /page banner -->
+        <div class="container">
+            <div class="row">
+              <?php if (!empty($breadcrumb)): ?>
+                  <nav aria-label="breadcrumb"
+                       class="breadcrumbs">
+                    <?php print $breadcrumb; ?>
+                  </nav>
+              <?php endif ?>
+            </div>
+        </div>
 
         <div class="bg-white">
           <?php if (!empty($page['highlighted'])): ?>
