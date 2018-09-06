@@ -1025,3 +1025,9 @@ img {
   height: auto;
   object-fit: contain;
 }
+
+// sustainability card
+.paragraphs-item-afma-target-species {
+  @include shadow-light-no-border;
+  padding: 0.5em;
+}

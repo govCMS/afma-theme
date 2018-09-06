@@ -33,18 +33,19 @@
             </div>
         </div>
         <!-- /page banner -->
-        <div class="container">
-            <div class="row">
-              <?php if (!empty($breadcrumb)): ?>
-                  <nav aria-label="breadcrumb"
-                       class="breadcrumbs">
-                    <?php print $breadcrumb; ?>
-                  </nav>
-              <?php endif ?>
-            </div>
-        </div>
 
         <div class="bg-white">
+
+            <div class="container">
+                <div class="row">
+                  <?php if (!empty($breadcrumb)): ?>
+                      <nav aria-label="breadcrumb"
+                           class="breadcrumbs">
+                        <?php print $breadcrumb; ?>
+                      </nav>
+                  <?php endif ?>
+                </div>
+            </div>
           <?php if (!empty($page['highlighted'])): ?>
               <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
           <?php endif; ?>

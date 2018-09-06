@@ -43,7 +43,7 @@
 
     .field-name-field-feature-image{
       width: 398px;
-      height: 282px;
+      height: 273px;
       background-color: $white;
       box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
       position: relative;
@@ -112,8 +112,10 @@ blockquote.x-blockquote {
 
 //want to know more
 .node-afma-portfolio{
-  .box-shadow {
+  .field-name-field-bottom-content {
     background-color: $videobg;
     box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1), inset 0px 5px 0px 0px $yellow;
+    @extend .p-5;
+    @extend .mt-5;
   }
 }
