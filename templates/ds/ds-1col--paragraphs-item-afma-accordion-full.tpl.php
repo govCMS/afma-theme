@@ -29,7 +29,7 @@
 
     <div id="accordion-<?php print $accordion_id; ?>" class="collapse <?php print $accordion_open; ?>" role="tabpanel" aria-labelledby="accordion-header-<?php print $accordion_id;?>" data-parent="#accordion-group" style="">
         <div class="card-body">
-          <?php print render($content['field_text']); ?>
+            <div class="pb-3"><?php print render($content['field_text']); ?></div>
         </div>
     </div>
 </div>

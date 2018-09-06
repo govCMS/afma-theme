@@ -113,3 +113,9 @@ blockquote.x-blockquote {
   line-height: $standard-line-height;
   font-size: 1em;
 }
+
+caption {
+  caption-side: initial;
+  font-family: $font-family3;
+  font-size: $h4-font-size;
+}
