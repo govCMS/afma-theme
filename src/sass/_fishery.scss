@@ -16,3 +16,31 @@ ul.slick-slider {
     z-index: 999;
   }
 }
+
+.field-name-field-target-species-parag{
+  .paragraphs-item-afma-target-species{
+    background-color: $white;
+    border: 1px solid $videobg;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .field-name-field-afma-sbar-title{
+    color: $lightblue;
+    margin-top: 1rem;
+  }
+  .paragraphs-item-afma-sustainability-status-bar{
+    font-family: $font-family3;
+    text-transform: uppercase;
+    @extend .sustainability-bar;
+  }
+  .vocabulary-sustainability-status{
+    color: $white;
+  }
+
+  & > .paragraphs-item-afma-sustainability-status-bar{
+    background-color: $white;
+    border: 1px solid $videobg;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
