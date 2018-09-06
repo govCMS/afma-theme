@@ -20,6 +20,42 @@
   @extend .view-afma-species;
 }
 
+//parent nav page
+.hp-row-2-title-icon{
+  width: 8%;
+  height: 8%;
+  margin-right: 1rem;
+}
+
+.parent-nav-page{
+  .field-name-field-internal-title{
+    text-align: left;
+    font-size: $h3-font-size;
+    padding: 1rem 1rem;
+  }
+  .field-name-field-links{
+    padding-bottom: 1.5rem;
+    padding-left: 3rem;
+    @extend .arrow-padding;
+  }
+}
+.pane-bean-services-for-fishers{
+  @extend .parent-nav-page;
+}
+.pane-bean-fisheries-management{
+  @extend .parent-nav-page;
+}
+.pane-bean-domestic-compliance{
+  @extend .parent-nav-page;
+}
+.pane-bean-international{
+  @extend .parent-nav-page;
+}
+.pane-bean-environment-and-research{
+  @extend .parent-nav-page;
+}
+
+
 //sidebar
 .sidebar-title{
   font-family: $font-family3;
