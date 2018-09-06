@@ -16,7 +16,7 @@ body.front {
     min-height: calc(50% - 2rem) !important;
   }
   .card {
-    min-height: 300px;
+    min-height: 220px;
     text-decoration: none;
     border-top: 5px solid;
     @include signpost-shadow(true);

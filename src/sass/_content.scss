@@ -9,10 +9,11 @@
     vertical-align: middle;
 
     td, th {
-      padding: 1rem;
+      padding: 0.5rem 1rem;;
       border: none;
     }
 
+    thead td,
     th {
       background-color: $afmablue;
       font-weight: 700;
