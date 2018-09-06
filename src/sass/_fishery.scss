@@ -19,9 +19,7 @@ ul.slick-slider {
 
 .field-name-field-target-species-parag{
   .paragraphs-item-afma-target-species{
-    background-color: $white;
-    border: 1px solid $videobg;
-    padding: 1rem;
+
     margin-bottom: 1rem;
   }
   .field-name-field-afma-sbar-title{
@@ -33,14 +31,10 @@ ul.slick-slider {
     text-transform: uppercase;
     @extend .sustainability-bar;
   }
+
   .vocabulary-sustainability-status{
     color: $white;
   }
 
-  & > .paragraphs-item-afma-sustainability-status-bar{
-    background-color: $white;
-    border: 1px solid $videobg;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
+
 }

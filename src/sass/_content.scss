@@ -25,6 +25,14 @@
       &:nth-child(2n) { background-color: $videobg; }
     }
   }
+  .intro-text{
+    font-size: $h4-font-size;
+  }
+  .card-body{
+    h3{
+      font-size: $h4-font-size;
+    }
+  }
 
   .afma-portfolio-col-container{
     font-family: $font-family3;
@@ -88,22 +96,9 @@
   }
 
   .field-name-body{
-
     .x-content-band{
-
       img {
         max-width: 100%;
-      }
-
-      .x-nav{
-        @extend .nav;
-        @extend .nav-tabs;
-        .x-nav-tabs-item{
-          @extend .nav-item;
-          a{
-            @extend .nav-link;
-          }
-        }
       }
     }
   }
