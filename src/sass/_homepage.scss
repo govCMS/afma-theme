@@ -1,32 +1,32 @@
-.hp-title{
+.hp-title {
   font-weight: normal;
   font-size: $h3-font-size;
   color: $body-color;
 }
 
-.arrow-padding{
-  .field-item{
-    i{
+.arrow-padding {
+  .field-item {
+    i {
       padding-right: .3rem;
     }
   }
 }
 
-.panel-display{
-  .homepage-panel-row-1{
+.panel-display {
+  .homepage-panel-row-1 {
     margin-top: 4rem;
-    .panel-col-content{
+    .panel-col-content {
       background-color: #ffffff;
       box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
     }
-    .field-name-field-internal-title{
+    .field-name-field-internal-title {
       text-align: left;
       font-size: $h3-font-size;
     }
-    .field-name-field-links{
+    .field-name-field-links {
       @extend .arrow-padding;
-      .field-item{
-        &.even{
+      .field-item {
+        &.even {
           width: 50%;
           float: left;
         }
@@ -34,41 +34,41 @@
     }
   }
 
-  .homepage-panel-row-2-outer{
+  .homepage-panel-row-2-outer {
     margin-top: 4rem;
     background-size: cover;
-    .container{
+    .container {
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
-    .panel-col-content{
+    .panel-col-content {
       background-color: #ffffff;
     }
-    .field-name-field-internal-title{
-      img{
+    .field-name-field-internal-title {
+      img {
         width: 10%;
         height: 10%;
         margin-right: 1rem;
       }
     }
-    .field-name-field-links{
+    .field-name-field-links {
       padding-bottom: 1.5rem;
       padding-left: 5rem;
       @extend .arrow-padding;
     }
   }
 
-  .homepage-panel-row-3{
+  .homepage-panel-row-3 {
     margin-top: 4rem;
-    .panel-col-content{
+    .panel-col-content {
       background-color: #ffffff;
       box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
-      .bean-homepage-basic-bean{
-        &.highlight{
-          .content{
+      .bean-homepage-basic-bean {
+        &.highlight {
+          .content {
             display: flex;
           }
-          .field-name-field-links{
+          .field-name-field-links {
             @extend .arrow-padding;
           }
         }
@@ -76,46 +76,47 @@
     }
   }
 
-  .homepage-panel-row-4{
+  .homepage-panel-row-4 {
     margin-top: 4rem;
-    .pane-bean-information-for{
-      .pane-title{
+    .pane-bean-information-for {
+      .pane-title {
         @extend .hp-title;
+        @extend .pb-3;
       }
-      .field-name-field-homepage-paragraphs{
-        img{
+      .field-name-field-homepage-paragraphs {
+        img {
           width: 20%;
         }
-        .paragraphs-item-afma-homepage-quick-links{
+        .paragraphs-item-afma-homepage-quick-links {
           background-color: #ffffff;
           box-shadow: inset 5px 0px 0px 0px $aqua;
           padding: 1.5rem;
           margin-bottom: .3rem;
           min-height: 151px;
-          .field-name-field-internal-title{
+          .field-name-field-internal-title {
             font-size: $large-font-size;
-            img{
+            img {
               margin-right: .3rem;
             }
           }
-          .field-name-field-links{
+          .field-name-field-links {
             margin-top: 1.5rem;
             margin-left: .5rem;
             @extend .arrow-padding;
-            a{
-              .light-blue{
+            a {
+              .light-blue {
                 color: $aqua;
               }
-              .light-yellow{
+              .light-yellow {
                 color: $yellow;
               }
-              .light-green{
+              .light-green {
                 color: $turquoise;
               }
-              .pink{
+              .pink {
                 color: $fuchsia;
               }
-              .blue-green{
+              .blue-green {
                 color: $teal;
               }
             }
@@ -123,27 +124,28 @@
         }
       }
     }
-    .pane-news-and-media{
+    .pane-news-and-media {
       @extend .view-news-and-media;
-      .pane-title{
-          @extend .hp-title;
+      .pane-title {
+        @extend .hp-title;
+        @extend .pb-3;
       }
     }
   }
 
-  .container-row5{
+  .container-row5 {
     background-color: $videobg;
   }
-  .homepage-panel-row-5{
+  .homepage-panel-row-5 {
     margin-top: 4rem;
 
-    .pane-bean-promoted-video{
-      .pane-title{
+    .pane-bean-promoted-video {
+      .pane-title {
         @extend .hp-title;
         margin: 3rem 0;
         text-align: center;
       }
-      .bean-basic-content{
+      .bean-basic-content {
         text-align: center;
         margin-bottom: 3rem;
       }

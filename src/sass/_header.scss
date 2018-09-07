@@ -20,7 +20,7 @@
 
       .sf-depth-1 {
         & > a {
-          padding: 1em 0.5em;
+          padding: 1.25em .5em 1em 0.5em;
           &:hover {
             text-decoration: none;
             color: $lightblue;
@@ -29,19 +29,19 @@
         & > ul {
         padding-left: 0;
         margin-left: 0;
-        & > li {
-          padding: 0.25em 1.5em .5em 1.5em;
-          a {
-            padding-left: 0;
-            margin-left: 0;
-            font-size: 0.9em;
-            &:hover {
-              text-decoration: none;
-              color: $lightblue;
+          & > li {
+          padding: 0.5em 1em;
+            a {
+              padding-left: 0;
+              margin-left: 0;
+              font-size: 0.9em;
+              &:hover {
+                text-decoration: none;
+                color: $lightblue;
+              }
             }
           }
         }
-      }
       }
     }
   }
