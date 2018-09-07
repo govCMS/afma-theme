@@ -19,9 +19,8 @@
         <div class="row">
             <div class="col-lg-6 footer-bottom-stay-connected">
                 <div class="social-links">
-                    Stay connected:
-                    <a href="https://www.facebook.com/AustralianFisheriesManagementAuthority/" target="_blank" title="AFMA Facebook" class="mx-1 afma-facebook-redirect"><i class="fab fa-facebook-square"></i></a>
-                    <a href="https://www.youtube.com/user/TheAFMAComms" title="AFMA Youtube" class="mx-1 afma-youtube-redirect"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/AustralianFisheriesManagementAuthority/" target="_blank" title="AFMA Facebook" class="mr-3 afma-facebook-redirect"><i class="fab fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a>
+                    <a href="https://www.youtube.com/user/TheAFMAComms" title="AFMA Youtube" class="afma-youtube-redirect"><i class="fab fa-youtube fa-2x"></i><span class="sr-only">Youtube</span></a>
                 </div>
             </div>
 

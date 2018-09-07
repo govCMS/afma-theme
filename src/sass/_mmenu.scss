@@ -1,4 +1,4 @@
-.mm-menu{
+html .mm-menu{
   background-color: $mm_backgroundColor;
   color: $mm_textColor;
   border-color: $mm_borderColor;
@@ -23,7 +23,7 @@
   }
   .mm-navbar__title{
     font-family: $font-family2;
-    color: $white !important;
+    color: $mm_textColor !important;
   }
   .mm-listitem{
     .mm-btn_next{
@@ -31,6 +31,7 @@
         right: 0;
         left: 0;
         border-color: $white;
+        color: $mm_textColor;
       }
       &:not(.mm-btn_fullwidth){
         width: $mm_btnSize;

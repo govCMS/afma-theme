@@ -120,7 +120,7 @@
     }
 
     .search-btn {
-      background-color: $green;
+      background-color: $turquoise;
       right: $menu-buttons;
     }
 
@@ -712,12 +712,17 @@
 
   .afma-news-listing-post-date {
     float: left;
+    text-align: left !important;
     padding-bottom: 0 !important;
 
     span {
       display: inline-block;
       font-size: 1rem !important;
     }
+  }
+
+  .afma-news-listing-imag {
+    display: none;
   }
 
   iframe {
@@ -760,15 +765,15 @@
     font-size: 16px;
   }
 
-  $menu-buttons: calc(50px + 2rem); // logo padding top and bottom
-  $menu-buttons-logo-pad: calc((50px + 2rem) * 2; // logo padding top and bottom
+  $menu-buttons: calc(40px + 2rem); // logo padding top and bottom
+  $menu-buttons-logo-pad: calc((40px + 2rem) * 2); // logo padding top and bottom
 
   .mm-header {
     height: $menu-buttons;
     padding-right: $menu-buttons-logo-pad;
 
     .afma-logo  {
-      padding: 25px 8px;
+      padding: 15px 8px;
     }
 
     .mob-menu,
@@ -946,14 +951,14 @@
   }
 
   $menu-buttons: calc(40px + 2rem); // logo padding top and bottom
-  $menu-buttons-logo-pad: calc((40px + 2rem) * 2; // logo padding top and bottom
+  $menu-buttons-logo-pad: calc((40px + 2rem) * 2); // logo padding top and bottom
 
   .mm-header {
     height: $menu-buttons;
     padding-right: $menu-buttons-logo-pad;
 
     .afma-logo  {
-      padding: 10px 8px;
+      padding: 15px 8px;
     }
 
     .mob-menu,
