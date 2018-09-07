@@ -132,6 +132,24 @@ blockquote.x-blockquote {
   }
 }
 
+.x-promo{
+  margin-top: 1rem;
+
+}
+.x-promo-content{
+  padding: 1rem;
+  border: 1px solid $videobg;
+  .card{
+    margin-bottom: 0;
+    .card-header{
+      padding: .5rem 1rem;
+      a{
+        font-size: $h4-font-size;
+      }
+    }
+  }
+}
+
 #mc_embed_signup{
   .input-group{
     display: block;
