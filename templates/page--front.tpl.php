@@ -22,11 +22,9 @@
                      src="/<?php print path_to_theme(); ?>/img/banners/banner-mobile.png">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-4">
                             <div class="text">
-                                <div class="accent">
-                                    <h1><?php print $home_page_h1; ?></h1>
-                                </div>
+                                <h1 class="text-white py-lg-5 pb-4"><?php print $home_page_h1; ?></h1>
                             </div>
                         </div>
                     </div>

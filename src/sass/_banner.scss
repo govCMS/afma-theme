@@ -5,10 +5,7 @@
   position: relative;
   margin-top: 5px; // Allow for nav underline
   overflow: hidden;
-
-  .accent{
-    padding-bottom: $accent-size;
-  }
+  background: $afmablue;
 
   .breadcrumbs{
     @include make-container-widths();
@@ -60,13 +57,15 @@
     margin-bottom: $spacer*2;
   }
   .bg-img{
+
     display: block;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    max-height: 300px;
+
     div{
-      min-height: 400px;
+      min-height: 300px;
+
       .text{
         display: flex;
         align-items: center;
