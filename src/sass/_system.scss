@@ -85,6 +85,11 @@
   }
 }
 
+.btn-primary{
+  background-color: $afmablue;
+  border-color: $afmablue;
+}
+
 input[type="submit"] {
   @extend .btn;
   @extend .btn-primary;
