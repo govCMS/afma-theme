@@ -10,6 +10,36 @@
 }
 
 .header {
+
+  .block-superfish {
+    .sf-main-menu {
+      .sf-depth-1 {
+        & > a {
+          &:hover {
+            text-decoration: none;
+            color: $afmablue;
+          }
+        }
+        & > ul {
+        padding-left: 0;
+        margin-left: 0;
+        & > li {
+          padding: 0.5em 1.5em 1em 1.5em;
+          a {
+            padding-left: 0;
+            margin-left: 0;
+            font-size: 0.85em;
+            &:hover {
+              text-decoration: none;
+              color: $afmablue;
+            }
+          }
+        }
+      }
+      }
+    }
+  }
+
   position: relative;
   z-index: 2;
   .nav-bg {
