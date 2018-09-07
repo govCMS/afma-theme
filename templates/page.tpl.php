@@ -69,7 +69,7 @@
                           <?php if (!empty($action_links)): ?>
                               <ul class="action-links"><?php print render($action_links); ?></ul>
                           <?php endif; ?>
-                            <div id="page-content">
+                            <div id="page-content" class="main-page-content">
                               <?php print render($page['content']); ?>
                             </div>
                         </section>
