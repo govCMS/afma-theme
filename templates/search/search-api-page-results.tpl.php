@@ -43,7 +43,9 @@
   <?php if ($result_count): ?>
 
     <?php print render($search_results); ?>
-    <?php print render($pager); ?>
+    <div class="mt-5">
+      <?php print render($pager); ?>
+    </div>
   <?php else : ?>
       <h2><?php print t('Your search did not match any documents.');?></h2>
       <p>Suggestions:</p>

@@ -99,6 +99,9 @@ blockquote {
         color: $gray-500;
         height: 100%;
         cursor: pointer;
+        &:hover {
+          color: $default-color;
+        }
       }
     }
   }
@@ -948,6 +951,9 @@ ul.list-custom.sidebar-menu {
       font-family: 'Font Awesome 5 Pro';
       margin-top: 0;
       overflow: hidden;
+      margin-left: -40px;
+      width: 30px;
+      font-size: 24px;
       background: #fff;
       border: none;
       color: gray;
@@ -956,7 +962,7 @@ ul.list-custom.sidebar-menu {
       text-decoration: none;
       font-weight: 300;
       &:hover {
-        color: $default-color-rgb;
+        color: $default-color;
       }
     }
   }
