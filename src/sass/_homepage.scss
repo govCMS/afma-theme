@@ -126,9 +126,7 @@
     .pane-news-and-media{
       @extend .view-news-and-media;
       .pane-title{
-        a{
           @extend .hp-title;
-        }
       }
     }
   }
