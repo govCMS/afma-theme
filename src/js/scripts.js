@@ -9,6 +9,19 @@
 
   Drupal.behaviors.govstrap = {
     attach: function (context, settings) {
+
+      // Smooth scropping to top
+      $(window).scroll(function () {
+        if ($(this).scrollTop() != 0) {
+          $("#to-top").fadeIn();
+        } else {
+          $("#to-top").fadeOut();
+        }
+      });
+      $("#to-top").click(function () {
+        $("body,html").animate({scrollTop: 0}, 500);
+      });
+
       $(document).ready(function () {
         var animationDuration = 220;
 

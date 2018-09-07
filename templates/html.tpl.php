@@ -44,6 +44,7 @@
            class="element-invisible element-focusable sr-only sr-only-focusable"><?php print $skip_link_text; ?></a>
     </div>
 <?php endif; ?>
+<div id="to-top" style="display: block;" aria-label="back to top"><i class="fas fa-chevron-up"></i></div>
   <?php print $page_top ?>
   <?php print $page ?>
   <?php print $page_bottom ?>
