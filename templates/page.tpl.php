@@ -35,7 +35,14 @@
         <!-- /page banner -->
 
         <div class="bg-white">
-
+          <?php if (!empty($page['highlighted'])): ?>
+              <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+          <?php endif; ?>
+          <?php if ($messages): ?>
+              <div class="system-alert">
+                <?php print $messages; ?>
+              </div>
+          <?php endif; ?>
             <div class="container">
                 <div class="row">
                   <?php if (!empty($breadcrumb)): ?>
@@ -46,14 +53,6 @@
                   <?php endif ?>
                 </div>
             </div>
-          <?php if (!empty($page['highlighted'])): ?>
-              <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-          <?php endif; ?>
-          <?php if ($messages): ?>
-              <div class="system-alert">
-                <?php print $messages; ?>
-              </div>
-          <?php endif; ?>
             <div class="container py-5">
                 <div class="row">
                     <!-- main page content -->
