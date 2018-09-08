@@ -53,7 +53,7 @@
                   <?php endif ?>
                 </div>
             </div>
-            <div class="container py-5">
+            <div class="container pt-3 pt-md-5 pb-5">
                 <div class="row">
                     <!-- main page content -->
                     <div class="<?php print $content_column_class; ?> pb-5">
