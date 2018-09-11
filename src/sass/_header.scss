@@ -15,7 +15,7 @@
     .sf-main-menu {
 
       li:hover > ul {
-        top: 50px;
+        top: 3.7rem;
       }
 
       .sf-depth-1 {
@@ -23,21 +23,22 @@
           padding: 1.25em .5em 1em 0.5em;
           &:hover {
             text-decoration: none;
-            color: $lightblue;
+            color: $white;
+            background-color: $afmagray;
           }
         }
         & > ul {
         padding-left: 0;
         margin-left: 0;
           & > li {
-          padding: 0.5em 1em;
+
             a {
-              padding-left: 0;
-              margin-left: 0;
+              padding: 1em 1.5em;
               font-size: 0.9em;
               &:hover {
                 text-decoration: none;
-                color: $lightblue;
+                color: $white;
+                background-color: $afmagray;
               }
             }
           }
@@ -66,7 +67,6 @@
       ul {
         background-color: $nav-bg;
         padding-left: 20px;
-        padding-bottom: 10px;
         li {
           .sf-depth-2 {
             padding-top: 10px;
