@@ -15,7 +15,8 @@
     .sf-main-menu {
 
       li:hover > ul {
-        top: 3.7rem;
+        top: 3.75rem;
+        border-top: .01rem solid $nav-bg;
       }
 
       .sf-depth-1 {
