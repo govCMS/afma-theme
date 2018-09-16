@@ -40,11 +40,11 @@
     </div>
 
   <?php if ($fields['field_image']): ?>
-      <div class="afma-news-listing-title-body col-lg-7 py-4">
+      <div class="afma-news-listing-title-body col-lg-8 py-4">
           <div class="afma-news-listing-title"><?php print $fields['title']->content; ?></div>
           <div class="afma-news-listing-body"> <?php print $fields['body']->content; ?></div>
       </div>
-      <div class="afma-news-listing-image col-lg-4 px-0"><?php print $fields['field_image']->content; ?></div>
+      <div class="afma-news-listing-image col-lg-3 px-0"><?php print $fields['field_image']->content; ?></div>
   <?php else: ?>
       <div class="afma-news-listing-title-body col-lg-11 py-4">
           <div class="afma-news-listing-title"><?php print $fields['title']->content; ?></div>
