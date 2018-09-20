@@ -76,6 +76,18 @@
 }
 
 @include media-breakpoint-down(md) { //992px
+
+  .signposts {
+    .card {
+      height: auto;
+
+      img {
+        flex-shrink: 0;
+        max-height: 999px;
+      }
+    }
+  }
+
   body.responsive {
     background-color: purple !important;
   }

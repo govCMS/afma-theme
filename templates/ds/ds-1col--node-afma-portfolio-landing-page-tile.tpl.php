@@ -15,7 +15,7 @@ $link = $content['read_more_link']['#object']->path;
     <?php
     $species_image = render($content['field_feature_image']);
     if (empty($species_image)) {
-      $species_image = '<img style="height: auto; max-width: 100%;" src="/'.path_to_theme().'/img/species-placeholder.png" alt="placeholder image for fish species" />';
+      $species_image = '<img style="height: auto; max-width: 100%; flex-shrink: 0;" src="/'.path_to_theme().'/img/species-placeholder.png" alt="placeholder image for fish species" />';
     }
     ?>
       <?php print $species_image; ?>

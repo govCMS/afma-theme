@@ -16,10 +16,16 @@ body.front {
     min-height: calc(50% - 2rem) !important;
   }
   .card {
-    min-height: 220px;
+    height: 265px;
     text-decoration: none;
     border-top: 5px solid;
     @include signpost-shadow(true);
+
+    img {
+      flex-shrink: 0;
+      max-height: 160px;
+    }
+
     &.half-card {
       min-height: 200px;
     }
