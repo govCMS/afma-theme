@@ -166,3 +166,39 @@ blockquote.x-blockquote {
     color: #c60;
   }
 }
+
+#x-content-band-1{
+  text-align: center;
+  .x-promo {
+    &.c2{
+      border: none;
+      background-color: #00466f;
+      .c1{
+        color: $white;
+      }
+    }
+  }
+
+  #x-content-band-2{
+    display: flex;
+    .x-column{
+      width: 34%;
+      .x-promo{
+        margin: 1rem;
+        .x-promo-content{
+          border: none;
+          color: $white;
+        }
+        &.c4{
+          background-color: $lightblue;
+        }
+        &.c5{
+          background-color: $afmagray;
+        }
+        &.c6{
+          background-color: $afmablue;
+        }
+      }
+    }
+  }
+}
