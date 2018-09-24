@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-md-6 text-right search-cluster">
                             <div class="afma-header-upper-links-container">
-                              <?php print render($header_links_block); ?>
+                              <?php print drupal_render(_block_get_renderable_array(_block_render_blocks([$header_links_block]))); ?>
                             </div>
                           <?php print $search_box; ?>
                         </div>

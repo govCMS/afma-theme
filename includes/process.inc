@@ -77,8 +77,9 @@ function govstrap_process_page(&$variables) {
   //$search_box_mobile["search_block_form"]["#id"] = $search_box_mobile["search_block_form"]["#id"].'--mobile';
   $variables['search_box_mobile'] = drupal_render($search_box_mobile);
 
-  $header_links =  module_invoke('menu_block', 'block_view', '2');
-  $variables['header_links_block'] = $header_links['content'];
+  //$header_links =  module_invoke('menu_block', 'block_view', '2');
+  $header_links = block_load('menu_block', '2');
+  $variables['header_links_block'] = $header_links;
 
   // Accessibility settings.
   $variables['skip_link_anchor'] = check_plain(theme_get_setting('govstrap_skip_link_anchor'));
