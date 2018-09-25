@@ -112,3 +112,30 @@ function govstrap_search_block_form_submit ($form, &$form_state) {
     $form_state['redirect'] = array('/search/'.$keys);
   }
 }
+
+/**
+ * Alter the menu tree and its configuration before the tree is rendered.
+ *
+ * @param $tree
+ *   An array containing the unrendered menu tree.
+ * @param $config
+ *   An array containing the configuration of the tree.
+ */
+function govstrap_menu_block_tree_alter(&$tree, &$config) {
+  if ($config['admin_title'] == 'AFMA sidebar nav (main menu)'){
+    foreach ($tree as $key => $value) {
+      if ($tree[$key]['link']['in_active_trail']) {
+        _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
+      }
+    }
+  }
+}
+
+function _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items(&$tree){
+  foreach ($tree as $key => $value) {
+    $tree[$key]['link']['hidden'] = 0;
+    if ($tree[$key]['link']['in_active_trail'] && !empty($tree[$key]['below'])) {
+      _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
+    }
+  }
+}
