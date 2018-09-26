@@ -128,14 +128,25 @@ function govstrap_menu_block_tree_alter(&$tree, &$config) {
         _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
       }
     }
+  }elseif ($config['admin_title'] == 'Footer explore menu'){
+    foreach ($tree as $key => $value) {
+      if ($tree[$key]['link']['hidden'] == '0' && !empty($tree[$key]['below'])) {
+        _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below'], TRUE);
+      }
+    }
   }
 }
 
-function _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items(&$tree){
+function _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items(&$tree, $enable_all = FALSE) {
   foreach ($tree as $key => $value) {
-    $tree[$key]['link']['hidden'] = 0;
-    if ($tree[$key]['link']['in_active_trail'] && !empty($tree[$key]['below'])) {
-      _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
+    $tree[$key]['link']['hidden'] = '0';
+    if (!empty($tree[$key]['below'])) {
+      if ($enable_all) {
+        _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below'], TRUE);
+      }
+      elseif ($tree[$key]['link']['in_active_trail']) {
+        _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
+      }
     }
   }
 }
