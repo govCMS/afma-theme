@@ -24,7 +24,7 @@ function govstrap_js_alter(&$js) {
   // Ensure jQuery Once is always loaded.
   // @see https://drupal.org/node/2149561
   if (empty($js['misc/jquery.once.js'])) {
-    $jquery_once = drupal_get_library('system', 'jquery.once');
+    $jquery_once               = drupal_get_library('system', 'jquery.once');
     $js['misc/jquery.once.js'] = $jquery_once['js']['misc/jquery.once.js'];
     $js['misc/jquery.once.js'] += drupal_js_defaults('misc/jquery.once.js');
   }
@@ -32,14 +32,14 @@ function govstrap_js_alter(&$js) {
   // Replace jQuery with higher version.
   if (theme_get_setting('jquery_replace_enabled')) {
     // jQuery update.
-    $node_admin_paths = array(
+    $node_admin_paths = [
       'node/*/edit',
       'node/add',
       'node/add/*',
       'panels/*',
-      'ctools/*'
-    );
-    $replace_jquery = TRUE;
+      'ctools/*',
+    ];
+    $replace_jquery   = TRUE;
     if (path_is_admin(current_path())) {
       $replace_jquery = FALSE;
     }
@@ -67,7 +67,7 @@ function govstrap_js_alter(&$js) {
 /**
  * Implements hook_js_callback_filter_xss_alter().
  */
-function govstrap_js_callback_filter_xss_alter(array &$allowed_tags = array()) {
+function govstrap_js_callback_filter_xss_alter(array &$allowed_tags = []) {
   $allowed_tags[] = 'button';
 }
 
@@ -77,8 +77,8 @@ function govstrap_js_callback_filter_xss_alter(array &$allowed_tags = array()) {
 function govstrap_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_api_page_search_form_default_search') {
     // Update search keys filed attributes.
-    $form['keys_1']['#title'] = 'Search';
-    $form['keys_1']['#attributes']['placeholder'] = t('Search');
+    $form['keys_1']['#title']                      = 'Search';
+    $form['keys_1']['#attributes']['placeholder']  = t('Search');
     $form['keys_1']['#attributes']['autocomplete'] = 'off';
     // Update submit button style.
     $form['submit_1']['#value'] = decode_entities('') . ' Search';
@@ -86,30 +86,31 @@ function govstrap_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == 'search_block_form') {
     // Update search keys filed attributes.
-    $form['search_block_form']['#attributes']['title'] = 'Search';
-    $form['search_block_form']['#attributes']['class'][] = 'form-control';
-    $form['search_block_form']['#attributes']['placeholder'] = t('Find what you\'re looking for...');
+    $form['search_block_form']['#attributes']['title']        = 'Search';
+    $form['search_block_form']['#attributes']['class'][]      = 'form-control';
+    $form['search_block_form']['#attributes']['placeholder']  = t('Find what you\'re looking for...');
     $form['search_block_form']['#attributes']['autocomplete'] = 'off';
     // Update submit button style.
-    $form['actions']['submit']['#value'] = decode_entities('');
+    $form['actions']['submit']['#value']                    = decode_entities('');
     $form['actions']['submit']['#attributes']['aria-label'] = 'Search';
-    $form['#submit'][0] = 'govstrap_search_block_form_submit';
+    $form['#submit'][0]                                     = 'govstrap_search_block_form_submit';
   }
 
   if ($form_id == 'search_api_page_search_form') {
-    $form['form']['keys_1']['#title_display'] = 'none';
-    $form['form']['keys_1']['#attributes']['class'][] = 'form-control';
+    $form['form']['keys_1']['#title_display']             = 'none';
+    $form['form']['keys_1']['#attributes']['class'][]     = 'form-control';
     $form['form']['keys_1']['#attributes']['placeholder'] = t('Find what you\'re looking for...');
-    $form['form']['submit_1']['#value'] = decode_entities('') . ' Search';
+    $form['form']['submit_1']['#value']                   = decode_entities('') . ' Search';
   }
 }
 
-function govstrap_search_block_form_submit ($form, &$form_state) {
+function govstrap_search_block_form_submit($form, &$form_state) {
   $keys = $form_state['values']['search_block_form'];
   if (empty($keys)) {
     form_set_error('keys', t('Please enter some keywords.'));
-  } else {
-    $form_state['redirect'] = array('/search/'.$keys);
+  }
+  else {
+    $form_state['redirect'] = ['/search/' . $keys];
   }
 }
 
@@ -122,16 +123,26 @@ function govstrap_search_block_form_submit ($form, &$form_state) {
  *   An array containing the configuration of the tree.
  */
 function govstrap_menu_block_tree_alter(&$tree, &$config) {
-  if ($config['admin_title'] == 'AFMA sidebar nav (main menu)'){
+  if ($config['admin_title'] == 'AFMA sidebar nav (main menu)') {
     foreach ($tree as $key => $value) {
       if ($tree[$key]['link']['in_active_trail']) {
         _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
       }
     }
-  }elseif ($config['admin_title'] == 'Footer explore menu'){
+  }
+  elseif ($config['admin_title'] == 'Footer explore menu') {
     foreach ($tree as $key => $value) {
-      if ($tree[$key]['link']['hidden'] == '0' && !empty($tree[$key]['below'])) {
-        _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below'], TRUE);
+      if ($value['link']['hidden'] == '0') {
+
+        // Hide homepage menu item.
+        if (drupal_strtolower($value['link']['link_title']) == 'home' && $value['link']['link_path'] == '<front>') {
+          $tree[$key]['link']['hidden'] = '1';
+          continue;
+        }
+
+        if (!empty($value['below'])) {
+          _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below'], TRUE);
+        }
       }
     }
   }
@@ -140,11 +151,11 @@ function govstrap_menu_block_tree_alter(&$tree, &$config) {
 function _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items(&$tree, $enable_all = FALSE) {
   foreach ($tree as $key => $value) {
     $tree[$key]['link']['hidden'] = '0';
-    if (!empty($tree[$key]['below'])) {
+    if (!empty($value['below'])) {
       if ($enable_all) {
         _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below'], TRUE);
       }
-      elseif ($tree[$key]['link']['in_active_trail']) {
+      elseif ($value['link']['in_active_trail']) {
         _govstrap_recursivly_activate_active_menu_item_s_all_sibling_menu_items($tree[$key]['below']);
       }
     }

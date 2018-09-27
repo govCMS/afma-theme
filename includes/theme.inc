@@ -26,7 +26,7 @@ function govstrap_breadcrumb($variables) {
       }
     }
     elseif ($page_type == 'search') {
-      $breadcrumb = array('<a href="/">Home</a>', 'Search');
+      $breadcrumb = ['<a href="/">Home</a>', 'Search'];
     }
     else {
       $breadcrumb[] = drupal_get_title();
@@ -53,11 +53,11 @@ function govstrap_breadcrumb($variables) {
  * @ingroup themeable
  */
 function govstrap_superfish_menu_item_link($variables) {
-  $menu_item = $variables['menu_item'];
+  $menu_item    = $variables['menu_item'];
   $link_options = $variables['link_options'];
 
-  if ($menu_item['link']['link_path'] == '<front>' && drupal_strtolower($menu_item['link']['title']) == 'home' ){
-    $link_options['html'] = TRUE;
+  if ($menu_item['link']['link_path'] == '<front>' && drupal_strtolower($menu_item['link']['title']) == 'home') {
+    $link_options['html']       = TRUE;
     $menu_item['link']['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
   }
 
@@ -75,7 +75,7 @@ function govstrap_menu_tree__menu_block__1($variables) {
  * Implements theme_menu_link().
  */
 function govstrap_menu_link__menu_block__1(array $variables) {
-  $element = $variables['element'];
+  $element  = $variables['element'];
   $sub_menu = '';
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
@@ -93,10 +93,7 @@ function govstrap_menu_tree__menu_block__3($variables) {
 
   $children = element_children($variables['#tree']);
 
-  if (!empty($variables['#tree'])
-      && $variables['#tree'][$children[0]]['#href'] == '<front>'
-      && $variables['#tree'][$children[0]]['#original_link']['plid'] == '0') {
-
+  if (!empty($variables['#tree']) && $variables['#tree'][$children[0]]['#original_link']['plid'] == '0') {
     $item_num_per_row = 3;
     $i                = 1;
     foreach ($children as $child_key) {
@@ -125,13 +122,13 @@ function govstrap_menu_tree__menu_block__3($variables) {
  * Implements theme_menu_link().
  */
 function govstrap_menu_link__menu_block__3(array $variables) {
-  $element = $variables['element'];
+  $element  = $variables['element'];
   $sub_menu = '';
 
-  if ($element['#original_link']['plid'] == 0){
-    $item_num_per_row = 3;
+  if ($element['#original_link']['plid'] == 0) {
+    $item_num_per_row                  = 3;
     $element['#attributes']['class'][] = 'col-ms-12';
-    $element['#attributes']['class'][] = 'col-md-' . (12/$item_num_per_row);
+    $element['#attributes']['class'][] = 'col-md-' . (12 / $item_num_per_row);
   }
 
   if ($element['#below']) {
@@ -152,17 +149,17 @@ function govstrap_crumbs_breadcrumb_link(array $item) {
 
   $prefix = '';
 
-  if ($item['href'] == '<front>'){
-    $prefix = '<div class="afma-breadcrum-prefix pr-2">You are here:</div>';
+  if ($item['href'] == '<front>') {
+    $prefix                            = '<div class="afma-breadcrum-prefix pr-2">You are here:</div>';
     $item['localized_options']['html'] = TRUE;
-    $item['title'] = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
+    $item['title']                     = '<i class="fal fa-home"></i><span class="sr-only">Home</span>';
   }
 
   if ('<nolink>' === $item['href']) {
     $out_put = $prefix . check_plain($item['title']);
   }
   else {
-    $options = isset($item['localized_options']) ? $item['localized_options'] : array();
+    $options = isset($item['localized_options']) ? $item['localized_options'] : [];
     $out_put = $prefix . l($item['title'], $item['href'], $options);
   }
 
@@ -173,18 +170,18 @@ function govstrap_crumbs_breadcrumb_link(array $item) {
  * Implements theme_pager_link().
  */
 function govstrap_pager_link($variables) {
-  $text = $variables['text'];
-  $page_new = $variables['page_new'];
-  $element = $variables['element'];
+  $text       = $variables['text'];
+  $page_new   = $variables['page_new'];
+  $element    = $variables['element'];
   $parameters = $variables['parameters'];
   $attributes = $variables['attributes'];
-  $page = isset($_GET['page']) ? $_GET['page'] : '';
+  $page       = isset($_GET['page']) ? $_GET['page'] : '';
   if ($new_page = implode(',', pager_load_array($page_new[$element], $element, explode(',', $page)))) {
     $parameters['page'] = $new_page;
   }
-  $query = array();
+  $query = [];
   if (count($parameters)) {
-    $query = drupal_get_query_parameters($parameters, array());
+    $query = drupal_get_query_parameters($parameters, []);
   }
   if ($query_pager = pager_get_query_parameters()) {
     $query = array_merge($query, $query_pager);
@@ -194,33 +191,33 @@ function govstrap_pager_link($variables) {
   if (!isset($attributes['title'])) {
     static $titles = NULL;
     if (!isset($titles)) {
-      $titles = array(
-        t('« first') => t('Go to first page'),
+      $titles = [
+        t('« first')    => t('Go to first page'),
         t('‹ previous') => t('Go to previous page'),
-        t('next ›') => t('Go to next page'),
-        t('last »') => t('Go to last page'),
-      );
+        t('next ›')     => t('Go to next page'),
+        t('last »')     => t('Go to last page'),
+      ];
     }
     if (isset($titles[$text])) {
       $attributes['title'] = $titles[$text];
     }
     elseif (is_numeric($text)) {
-      $attributes['title'] = t('Go to page @number', array(
+      $attributes['title'] = t('Go to page @number', [
         '@number' => $text,
-      ));
+      ]);
     }
   }
 
-  $attributes['class'] = array('page-link');
+  $attributes['class'] = ['page-link'];
 
   // @todo l() cannot be used here, since it adds an 'active' class based on the
   //   path only (which is always the current path for pager links). Apparently,
   //   none of the pager links is active at any time - but it should still be
   //   possible to use l() here.
   // @see http://drupal.org/node/1410574
-  $attributes['href'] = url($_GET['q'], array(
+  $attributes['href'] = url($_GET['q'], [
     'query' => $query,
-  ));
+  ]);
   return '<a' . drupal_attributes($attributes) . '>' . $text . '</a>';
 }
 
@@ -228,10 +225,10 @@ function govstrap_pager_link($variables) {
  * Implements theme_pager().
  */
 function govstrap_pager($variables) {
-  $tags = $variables['tags'];
-  $element = $variables['element'];
+  $tags       = $variables['tags'];
+  $element    = $variables['element'];
   $parameters = $variables['parameters'];
-  $quantity = 7;
+  $quantity   = 7;
   global $pager_page_array, $pager_total;
 
   // Calculate various markers within this pager piece:
@@ -256,142 +253,142 @@ function govstrap_pager($variables) {
   if ($pager_last > $pager_max) {
 
     // Adjust "center" if at end of query.
-    $i = $i + ($pager_max - $pager_last);
+    $i          = $i + ($pager_max - $pager_last);
     $pager_last = $pager_max;
   }
   if ($i <= 0) {
 
     // Adjust "center" if at start of query.
     $pager_last = $pager_last + (1 - $i);
-    $i = 1;
+    $i          = 1;
   }
 
   // End of generation loop preparation.
-  $li_first = theme('pager_first', array(
-    'text' => t('First'),
-    'element' => $element,
+  $li_first    = theme('pager_first', [
+    'text'       => t('First'),
+    'element'    => $element,
     'parameters' => $parameters,
-  ));
-  $li_previous = theme('pager_previous', array(
-    'text' => '<i class="fal fa-arrow-left theme-color"></i><span class="sr-only">'.t('previous').'</span>',
-    'element' => $element,
-    'interval' => 1,
+  ]);
+  $li_previous = theme('pager_previous', [
+    'text'       => '<i class="fal fa-arrow-left theme-color"></i><span class="sr-only">' . t('previous') . '</span>',
+    'element'    => $element,
+    'interval'   => 1,
     'parameters' => $parameters,
-  ));
-  $li_next = theme('pager_next', array(
-    'text' => '<i class="fal fa-arrow-right theme-color"></i><span class="sr-only">'.t('next').'</span>',
-    'element' => $element,
-    'interval' => 1,
+  ]);
+  $li_next     = theme('pager_next', [
+    'text'       => '<i class="fal fa-arrow-right theme-color"></i><span class="sr-only">' . t('next') . '</span>',
+    'element'    => $element,
+    'interval'   => 1,
     'parameters' => $parameters,
-  ));
-  $li_last = theme('pager_last', array(
-    'text' => t('Last'),
-    'element' => $element,
+  ]);
+  $li_last     = theme('pager_last', [
+    'text'       => t('Last'),
+    'element'    => $element,
     'parameters' => $parameters,
-  ));
+  ]);
   if ($pager_total[$element] > 1) {
     if ($li_first) {
-      $items[] = array(
-        'class' => array(
+      $items[] = [
+        'class' => [
           'page-item',
-        ),
-        'data' => $li_first,
-      );
+        ],
+        'data'  => $li_first,
+      ];
     }
     if ($li_previous) {
-      $items[] = array(
-        'class' => array(
+      $items[] = [
+        'class' => [
           'page-item',
-        ),
-        'data' => $li_previous,
-      );
+        ],
+        'data'  => $li_previous,
+      ];
     }
 
     // When there is more than one page, create the pager list.
     if ($i != $pager_max) {
       if ($i > 1) {
-        $items[] = array(
-          'class' => array(
+        $items[] = [
+          'class' => [
             'page-item',
             'page-ellipsis',
-          ),
-          'data' => '<span class="page-link">…</span>',
-        );
+          ],
+          'data'  => '<span class="page-link">…</span>',
+        ];
       }
 
       // Now generate the actual pager piece.
       for (; $i <= $pager_last && $i <= $pager_max; $i++) {
         if ($i < $pager_current) {
-          $items[] = array(
-            'class' => array(
+          $items[] = [
+            'class' => [
               'page-item',
-            ),
-            'data' => theme('pager_previous', array(
-              'text' => $i,
-              'element' => $element,
-              'interval' => $pager_current - $i,
+            ],
+            'data'  => theme('pager_previous', [
+              'text'       => $i,
+              'element'    => $element,
+              'interval'   => $pager_current - $i,
               'parameters' => $parameters,
-            )),
-          );
+            ]),
+          ];
         }
         if ($i == $pager_current) {
-          $items[] = array(
-            'class' => array(
+          $items[] = [
+            'class' => [
               'page-item',
               'current',
-            ),
-            'data' => '<span href="#" class="page-link">'.$i.'</span>',
-          );
+            ],
+            'data'  => '<span href="#" class="page-link">' . $i . '</span>',
+          ];
         }
         if ($i > $pager_current) {
-          $items[] = array(
-            'class' => array(
+          $items[] = [
+            'class' => [
               'page-item',
-            ),
-            'data' => theme('pager_next', array(
-              'text' => $i,
-              'element' => $element,
-              'interval' => $i - $pager_current,
+            ],
+            'data'  => theme('pager_next', [
+              'text'       => $i,
+              'element'    => $element,
+              'interval'   => $i - $pager_current,
               'parameters' => $parameters,
-            )),
-          );
+            ]),
+          ];
         }
       }
       if ($i < $pager_max) {
-        $items[] = array(
-          'class' => array(
+        $items[] = [
+          'class' => [
             'page-item',
             'page-ellipsis',
-          ),
-          'data' => '<span class="page-link">…</span>',
-        );
+          ],
+          'data'  => '<span class="page-link">…</span>',
+        ];
       }
     }
 
     // End generation.
     if ($li_next) {
-      $items[] = array(
-        'class' => array(
+      $items[] = [
+        'class' => [
           'page-item',
-        ),
-        'data' => $li_next,
-      );
+        ],
+        'data'  => $li_next,
+      ];
     }
     if ($li_last) {
-      $items[] = array(
-        'class' => array(
+      $items[] = [
+        'class' => [
           'page-item',
-        ),
-        'data' => $li_last,
-      );
+        ],
+        'data'  => $li_last,
+      ];
     }
-    return '<h2 class="sr-only">' . t('Pages') . '</h2><div class="item-pager">' . theme('item_list', array(
-        'items' => $items,
-        'attributes' => array(
-          'class' => array(
+    return '<h2 class="sr-only">' . t('Pages') . '</h2><div class="item-pager">' . theme('item_list', [
+        'items'      => $items,
+        'attributes' => [
+          'class' => [
             'pagination',
-          ),
-        ),
-      )).'</div>';
+          ],
+        ],
+      ]) . '</div>';
   }
 }
