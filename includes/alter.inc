@@ -87,7 +87,7 @@ function govstrap_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_block_form') {
     // Update search keys filed attributes.
     $form['search_block_form']['#attributes']['title']        = 'Search';
-    $form['search_block_form']['#attributes']['class'][]      = 'form-control';
+    $form['search_block_form']['#attributes']['class'][]      = 'form-control form-text-search';
     $form['search_block_form']['#attributes']['placeholder']  = t('Find what you\'re looking for...');
     $form['search_block_form']['#attributes']['autocomplete'] = 'off';
     // Update submit button style.

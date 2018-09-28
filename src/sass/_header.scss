@@ -21,11 +21,17 @@
 
       .sf-depth-1 {
         & > a {
-          padding: 1.25em .5em 1em 0.5em;
+          padding: calc(1.25em + 1px) .5em 1em 0.5em;
           &:hover {
             text-decoration: none;
             color: $white;
             background-color: $afmagray;
+          }
+        }
+        // home link
+        &.first {
+          & > a {
+            padding: calc(1.25em - 1px) .5em 1em 0.5em;
           }
         }
         & > ul {
@@ -99,10 +105,18 @@
   }
   .top {
     padding: $spacer 0;
-    .afma-logo {
-      width: 435px;
-      height: 98px;
+
+
+    .form-text-search {
+      &:hover {
+        background: darken($body-bg, 5%) !important;
+      }
     }
+
+    .afma-header-logo-container {
+      padding: 10px 50px 10px 0;
+    }
+
     .afma-header-crimfish-hotline {
       padding-top: 20px;
       padding-left: 6.7rem;
