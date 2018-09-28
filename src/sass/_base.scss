@@ -71,7 +71,7 @@
 // Components
 //
 
-.main-page-content p a {
+.main-page-content p a:not(.btn) {
   border-bottom: 1px solid $link-color;
   &:hover {
     text-decoration: none;
