@@ -161,6 +161,20 @@ function govstrap_menu_link__menu_block__3(array $variables) {
 }
 
 /**
+ * Implements theme_menu_tree().
+ */
+function govstrap_menu_tree__menu_block__5($variables) {
+  return govstrap_menu_tree__menu_block__1($variables);
+}
+
+/**
+ * Implements theme_menu_link().
+ */
+function govstrap_menu_link__menu_block__5(array $variables) {
+  return govstrap_menu_link__menu_block__1($variables);
+}
+
+/**
  * Default theme implementation for theme('crumbs_breadcrumb_link').
  *
  * @param array $item
