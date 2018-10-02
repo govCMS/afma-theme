@@ -94,22 +94,44 @@ function govstrap_menu_tree__menu_block__3($variables) {
   $children = element_children($variables['#tree']);
 
   if (!empty($variables['#tree']) && $variables['#tree'][$children[0]]['#original_link']['plid'] == '0') {
+
+    // Based on AFMA's requirement, we sort the footer menu items as:
+    // 1, sort all items in low-to-high order, based on count of direct children.
+    // 2, group items as specified number of items per row.
+    // 3, within every group, sort items in high-to-low order, based on count their direct children.
+
     $item_num_per_row = 3;
-    $i                = 1;
+
+    $new_tree = [];
     foreach ($children as $child_key) {
+      $new_tree[(string)count($variables['#tree'][$child_key]['#below'])] =  $child_key;
+    }
+    ksort($new_tree);
+    $children = [];
+
+    $i                = 1;
+    $j                = 0;
+    foreach ($new_tree as $children_num => $child_key) {
       switch ($i % $item_num_per_row) {
-        case 1:
-          $out_put .= '<div class="row">' . $variables['#tree'][$child_key]['#children'];
-          break;
         case 0:
-          $out_put .= $variables['#tree'][$child_key]['#children'] . '</div>';
+          $children[$j][$children_num] = $child_key;
+          ++$j;
           break;
         default:
-          $out_put .= $variables['#tree'][$child_key]['#children'];
+          $children[$j][$children_num] = $child_key;
           break;
       }
       ++$i;
     }
+
+    $out_put = '<div class="row">';
+    foreach ($children as $row){
+      krsort($row);
+      foreach ($row as $children_num => $child_key){
+        $out_put .= $variables['#tree'][$child_key]['#children'];
+      }
+    }
+    $out_put .= '</div>';
   }
   else {
     $out_put = '<ul class="menu">' . $variables['tree'] . '</ul>';
