@@ -144,6 +144,13 @@ function govstrap_preprocess_node(&$variables, $hook) {
 
   if (function_exists($possible_hook_name)) {
     $possible_hook_name($variables);
+  }else{
+    // _template_preprocess_node__{content_type}
+    $possible_hook_name = '_' . __FUNCTION__ . '__' . $variables['type'];
+
+    if (function_exists($possible_hook_name)) {
+      $possible_hook_name($variables);
+    }
   }
 }
 
@@ -284,6 +291,13 @@ function _govstrap_preprocess_node__afma_portfolio__full(&$variables) {
       unset($content_ref);
     }
   }
+}
+
+/**
+ * Called by govstrap_preprocess_node()
+ */
+function _govstrap_preprocess_node__book(&$variables){
+  $variables['display_submitted'] = FALSE;
 }
 
 /**
