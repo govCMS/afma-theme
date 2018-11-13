@@ -1043,3 +1043,17 @@ img {
   @include shadow-light-no-border;
   padding: 0.5em;
 }
+// Book navigation
+.book-navigation {
+  .nav-mob-helper {
+    display: none;
+  }
+  .page-previous,
+  .page-next {
+    width: 100%;
+  }
+  .page-up {
+    margin: 0 40%;
+    float: unset;
+  }
+}
