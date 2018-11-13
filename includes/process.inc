@@ -15,7 +15,7 @@ function govstrap_process_html(&$variables, $hook) {
     ,['[afma-public-file-path]', '%5Bafma-public-file-path%5D',], $variables['page']);
   
   // Replace public file path token with public file path
-  //$path_to_public_files = variable_get('file_public_path', 'sites/default/files');
+  // $path_to_public_files = variable_get('file_public_path', 'sites/default/files');
   $path_to_public_files = _govstrap_get_public_file_path_from_system();
   $path_to_theme = path_to_theme();
   $search = [
