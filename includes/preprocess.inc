@@ -119,6 +119,10 @@ function govstrap_preprocess_page(&$variables) {
   if ($header === "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__403';
   }
+  if (isset($variables['node']->type)) {
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type . '__' . arg(1);
+  }
 
   // Set page container columns.
   $variables['container_class'] = 'container';
